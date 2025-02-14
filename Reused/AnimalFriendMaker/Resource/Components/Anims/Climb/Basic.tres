@@ -1,0 +1,28 @@
+[gd_resource type="AnimationNodeBlendSpace2D" load_steps=6 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "ClimbIdle_loop"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "ClimbUp_loop"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "ClimbDown_loop"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "ClimbRight_loop"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "ClimbLeft_loop"
+
+[resource]
+blend_point_0/node = SubResource( 1 )
+blend_point_0/pos = Vector2( 0, 0 )
+blend_point_1/node = SubResource( 2 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 3 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 4 )
+blend_point_3/pos = Vector2( 1, 0 )
+blend_point_4/node = SubResource( 5 )
+blend_point_4/pos = Vector2( -1, 0 )

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/OptionItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemSlider/ItemSlider.gd" type="Script" id=2]
+[ext_resource path="res://Reused/ReusableSystems/DTextInput/DTextInput.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Reused/ReusableSystems/DHSlider/DHSlider.tscn" type="PackedScene" id=4]
+
+[node name="ItemSlider" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+default_value = [ 50 ]
+
+[node name="ValueInput" parent="." index="3" instance=ExtResource( 3 )]
+anchor_left = 0.383
+anchor_right = 0.383
+margin_left = 3.65259
+margin_top = 5.0
+margin_right = 103.653
+margin_bottom = -4.96
+
+[node name="SliderInput" parent="." index="4" instance=ExtResource( 4 )]
+anchor_left = 0.384
+anchor_right = 0.997
+anchor_bottom = 1.002
+margin_left = 103.028
+margin_right = -54.0532
+margin_bottom = -0.0799179
+
+[connection signal="text_changed" from="ValueInput" to="." method="_on_ValueInput_text_changed"]
+[connection signal="value_changed" from="SliderInput" to="." method="_on_SliderInput_value_changed"]

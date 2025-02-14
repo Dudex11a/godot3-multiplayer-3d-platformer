@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/DColorPicker/DColorPicker.gd" type="Script" id=1]
+[ext_resource path="res://Reused/ReusableSystems/DColorPicker/HueBoxShader.tres" type="Shader" id=2]
+[ext_resource path="res://Reused/ReusableSystems/DColorPicker/SatValueBox.tres" type="Shader" id=3]
+[ext_resource path="res://Reused/ReusableSystems/DColorPicker/HueSelection.gd" type="Script" id=4]
+[ext_resource path="res://Reused/ReusableSystems/DColorPicker/SatValueSelection.gd" type="Script" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/hue = 0.0
+
+[node name="DColorPicker" type="Control"]
+anchor_right = 0.391
+anchor_bottom = 0.694
+margin_right = -0.480042
+margin_bottom = 0.320007
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="_Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hue" type="ColorRect" parent="."]
+material = SubResource( 1 )
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.24
+anchor_bottom = 0.74
+margin_left = -9.53674e-07
+margin_top = -9.53674e-07
+margin_right = -7.62939e-06
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selection" type="ColorRect" parent="Hue"]
+anchor_top = 0.007
+anchor_right = 1.0
+anchor_bottom = 0.007
+margin_top = -2.52
+margin_bottom = 2.48
+rect_pivot_offset = Vector2( 55, 2.5 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SatValue" type="ColorRect" parent="."]
+material = SubResource( 2 )
+anchor_left = 0.26
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.74
+margin_left = -1.52588e-05
+margin_top = -9.53674e-07
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selection" type="ColorRect" parent="SatValue"]
+anchor_left = 0.056
+anchor_top = 0.056
+anchor_right = 0.056
+anchor_bottom = 0.056
+margin_left = -20.16
+margin_top = -20.16
+margin_right = 19.84
+margin_bottom = 19.84
+rect_pivot_offset = Vector2( 20, 20 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="_FinalColor" type="ColorRect" parent="."]
+anchor_left = 0.02
+anchor_top = 0.76
+anchor_right = 0.98
+anchor_bottom = 0.98
+margin_left = -9.53674e-07
+margin_top = -3.05176e-05
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Select2.ogg-074405c0b02979a58588794040ef5666.oggstr"
+
+[deps]
+
+source_file="res://Reused/ReusableSystems/Autoload/CustomFocus/Sound/Select2.ogg"
+dest_files=[ "res://.import/Select2.ogg-074405c0b02979a58588794040ef5666.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

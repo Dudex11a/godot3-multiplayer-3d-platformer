@@ -1,0 +1,533 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/TextWindow/Keyboard/Keyboard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/TextWindow/Keyboard/Key/Key.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Reused/Resources/Icons/Back.png" type="Texture" id=3]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/TextWindow/Keyboard/EnglishKeyboard/EnglishKeyboard.gd" type="Script" id=4]
+[ext_resource path="res://Reused/Resources/Icons/UpArrowFilled.png" type="Texture" id=5]
+[ext_resource path="res://Reused/Resources/Icons/UpArrowWhile.png" type="Texture" id=6]
+[ext_resource path="res://Reused/Resources/Icons/UpArrowOutlined.png" type="Texture" id=7]
+
+[node name="EnglishKeyboard" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+caps_icons = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ]
+
+[node name="Keys" type="GridContainer" parent="." index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+columns = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="Control" parent="Keys" index="0"]
+margin_right = 103.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="1" parent="Keys" index="1" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 107.0
+margin_right = 210.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "1"
+
+[node name="2" parent="Keys" index="2" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 214.0
+margin_right = 317.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "2"
+
+[node name="3" parent="Keys" index="3" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 321.0
+margin_right = 424.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "3"
+
+[node name="4" parent="Keys" index="4" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 428.0
+margin_right = 531.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "4"
+
+[node name="5" parent="Keys" index="5" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 535.0
+margin_right = 638.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "5"
+
+[node name="6" parent="Keys" index="6" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 642.0
+margin_right = 745.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "6"
+
+[node name="7" parent="Keys" index="7" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 749.0
+margin_right = 852.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "7"
+
+[node name="8" parent="Keys" index="8" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 856.0
+margin_right = 959.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "8"
+
+[node name="9" parent="Keys" index="9" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 963.0
+margin_right = 1066.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "9"
+
+[node name="0" parent="Keys" index="10" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1070.0
+margin_right = 1173.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "0"
+
+[node name="Backspace" type="Button" parent="Keys" index="11"]
+margin_left = 1177.0
+margin_right = 1280.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Keys/Backspace" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="Spacer3" type="Control" parent="Keys" index="12"]
+margin_top = 180.0
+margin_right = 103.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="q" parent="Keys" index="13" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 107.0
+margin_top = 180.0
+margin_right = 210.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "q"
+
+[node name="w" parent="Keys" index="14" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 214.0
+margin_top = 180.0
+margin_right = 317.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "w"
+
+[node name="e" parent="Keys" index="15" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 321.0
+margin_top = 180.0
+margin_right = 424.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "e"
+
+[node name="r" parent="Keys" index="16" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 428.0
+margin_top = 180.0
+margin_right = 531.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "r"
+
+[node name="t" parent="Keys" index="17" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 535.0
+margin_top = 180.0
+margin_right = 638.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "t"
+
+[node name="y" parent="Keys" index="18" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 642.0
+margin_top = 180.0
+margin_right = 745.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "y"
+
+[node name="u" parent="Keys" index="19" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 749.0
+margin_top = 180.0
+margin_right = 852.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "u"
+
+[node name="i" parent="Keys" index="20" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 856.0
+margin_top = 180.0
+margin_right = 959.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "i"
+
+[node name="o" parent="Keys" index="21" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 963.0
+margin_top = 180.0
+margin_right = 1066.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "o"
+
+[node name="p" parent="Keys" index="22" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1070.0
+margin_top = 180.0
+margin_right = 1173.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "p"
+
+[node name="Spacer4" type="Control" parent="Keys" index="23"]
+margin_left = 1177.0
+margin_top = 180.0
+margin_right = 1280.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Caps" type="Button" parent="Keys" index="24"]
+margin_top = 360.0
+margin_right = 103.0
+margin_bottom = 536.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Keys/Caps" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CapsOld" parent="Keys" index="25" instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 360.0
+margin_right = 103.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "Caps"
+
+[node name="a" parent="Keys" index="26" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 107.0
+margin_top = 360.0
+margin_right = 210.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="s" parent="Keys" index="27" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 214.0
+margin_top = 360.0
+margin_right = 317.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "s"
+
+[node name="d" parent="Keys" index="28" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 321.0
+margin_top = 360.0
+margin_right = 424.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "d"
+
+[node name="f" parent="Keys" index="29" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 428.0
+margin_top = 360.0
+margin_right = 531.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "f"
+
+[node name="g" parent="Keys" index="30" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 535.0
+margin_top = 360.0
+margin_right = 638.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "g"
+
+[node name="h" parent="Keys" index="31" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 642.0
+margin_top = 360.0
+margin_right = 745.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "h"
+
+[node name="j" parent="Keys" index="32" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 749.0
+margin_top = 360.0
+margin_right = 852.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "j"
+
+[node name="k" parent="Keys" index="33" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 856.0
+margin_top = 360.0
+margin_right = 959.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "k"
+
+[node name="l" parent="Keys" index="34" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 963.0
+margin_top = 360.0
+margin_right = 1066.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "l"
+
+[node name="Spacer6" type="Control" parent="Keys" index="35"]
+margin_left = 1070.0
+margin_top = 360.0
+margin_right = 1173.0
+margin_bottom = 536.0
+
+[node name="Enter" parent="Keys" index="36" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1177.0
+margin_top = 360.0
+margin_right = 1280.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "Enter"
+
+[node name="Spacer7" type="Control" parent="Keys" index="37"]
+margin_top = 540.0
+margin_right = 103.0
+margin_bottom = 716.0
+
+[node name="z" parent="Keys" index="38" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 107.0
+margin_top = 540.0
+margin_right = 210.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "z"
+
+[node name="x" parent="Keys" index="39" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 214.0
+margin_top = 540.0
+margin_right = 317.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "x"
+
+[node name="c" parent="Keys" index="40" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 321.0
+margin_top = 540.0
+margin_right = 424.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "c"
+
+[node name="v" parent="Keys" index="41" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 428.0
+margin_top = 540.0
+margin_right = 531.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "v"
+
+[node name="b" parent="Keys" index="42" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 535.0
+margin_top = 540.0
+margin_right = 638.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "b"
+
+[node name="n" parent="Keys" index="43" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 642.0
+margin_top = 540.0
+margin_right = 745.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "n"
+
+[node name="m" parent="Keys" index="44" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 749.0
+margin_top = 540.0
+margin_right = 852.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "m"
+
+[node name="Spacer9" type="Control" parent="Keys" index="45"]
+margin_left = 856.0
+margin_top = 540.0
+margin_right = 959.0
+margin_bottom = 716.0
+
+[node name="Space" parent="Keys" index="46" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 963.0
+margin_top = 540.0
+margin_right = 1066.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "Space"
+
+[node name="<" parent="Keys" index="47" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1070.0
+margin_top = 540.0
+margin_right = 1173.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = "<"
+
+[node name=">" parent="Keys" index="48" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1177.0
+margin_top = 540.0
+margin_right = 1280.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+character = ">"
+
+[connection signal="pressed" from="Keys/Backspace" to="." method="_on_Backspace_pressed"]
+[connection signal="pressed" from="Keys/Caps" to="." method="_on_Caps_pressed"]

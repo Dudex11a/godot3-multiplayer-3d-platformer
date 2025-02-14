@@ -1,0 +1,162 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Nodes/World/Place/Place.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/Environment/1/Environment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/World/Place/Places/ThePark/Material/Tree1Material.tres" type="Material" id=3]
+[ext_resource path="res://Nodes/World/Place/Places/ThePark/Material/Ground2Material.tres" type="Material" id=4]
+[ext_resource path="res://Nodes/World/Place/Places/ThePark/Material/Ground1Material.tres" type="Material" id=5]
+[ext_resource path="res://Nodes/World/Place/Places/ThePark/Material/Wood1Material.tres" type="Material" id=6]
+[ext_resource path="res://Nodes/Pawn/Actor/Box/Box.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Nodes/Pawn/Actor/ActorSpawner/ActorSpawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/Pawn/Actor/Collectible/MainCollectible/ActionCollectible/ActionCollectible.tscn" type="PackedScene" id=9]
+
+[sub_resource type="SpatialMaterial" id=1]
+resource_local_to_scene = true
+render_priority = 1
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_diffuse_mode = 4
+params_specular_mode = 3
+params_billboard_mode = 1
+albedo_color = Color( 1.5, 1.5, 1.5, 1 )
+metallic_specular = 0.0
+roughness = 0.02
+transmission_enabled = true
+transmission = Color( 0, 0, 0, 1 )
+
+[node name="Place" instance=ExtResource( 1 )]
+
+[node name="Spawn" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 18 )
+
+[node name="BlockOut" type="CSGCombiner" parent="." index="3"]
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+
+[node name="CSGCylinder" type="CSGCylinder" parent="BlockOut" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0 )
+radius = 40.0
+height = 10.0
+material = ExtResource( 5 )
+
+[node name="MiddleTree" type="CSGCylinder" parent="BlockOut" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23888, 15, -2.90212 )
+radius = 8.0
+height = 30.0
+material = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="BlockOut/MiddleTree" index="0"]
+transform = Transform( 0.923953, 0, 0.382506, 0, 1, 0, -0.382506, 0, 0.923953, 1.69095, -13, 7.29997 )
+material = ExtResource( 3 )
+
+[node name="CSGSphere" type="CSGSphere" parent="BlockOut" index="2"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, -1, 0 )
+radius = 20.0
+material = ExtResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="BlockOut" index="3"]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -23, 1, 20 )
+width = 15.334
+height = 4.0
+depth = 19.565
+material = ExtResource( 5 )
+
+[node name="CSGBox2" type="CSGBox" parent="BlockOut" index="4"]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -29.527, 5.07244, -18.0992 )
+width = 28.503
+height = 13.821
+depth = 21.377
+material = ExtResource( 5 )
+
+[node name="CSGBox4" type="CSGBox" parent="BlockOut" index="5"]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -5.60277, 5.07244, -41.5522 )
+width = 28.503
+height = 17.0
+depth = 21.377
+material = ExtResource( 5 )
+
+[node name="CSGBox5" type="CSGBox" parent="BlockOut" index="6"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 7.60403, 5.07244, -31.3454 )
+width = 28.503
+height = 17.0
+depth = 21.377
+material = ExtResource( 5 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="BlockOut" index="7"]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -39, 1, 15 )
+polygon = PoolVector2Array( -16, 11, -13, 11, 0, 2, 6, 2, 6, -2, 0, -2, -12, -2, -15.5718, -1.85407, -31, -2, -31, 11 )
+depth = 21.55
+material = ExtResource( 5 )
+
+[node name="CSGBox6" type="CSGPolygon" parent="BlockOut" index="8"]
+transform = Transform( -0.707107, 0, -1.02672, 0, 1, 0, 0.707107, 0, -1.02672, -21.2554, 14.3079, -30.0056 )
+polygon = PoolVector2Array( -4.91457, -2.58909, -4.96578, -0.745982, 0.0822601, -2.29795, 0.0523834, -4.35015, -2.48251, -2.92202 )
+depth = 9.22
+material = ExtResource( 6 )
+
+[node name="CSGBox8" type="CSGPolygon" parent="BlockOut" index="9"]
+transform = Transform( -0.707107, 0, -1.02672, 0, 1, 0, 0.707107, 0, -1.02672, -34.2494, 18.3079, -20.3721 )
+polygon = PoolVector2Array( -4.91457, -2.58909, -5.85221, 9.95039, -0.372207, 9.21186, 0, -3, -2, -4 )
+depth = 12.0
+material = ExtResource( 6 )
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="BlockOut" index="10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.24914, 0 )
+radius = 50.0
+height = 70.17
+material = ExtResource( 5 )
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="BlockOut/CSGCylinder3" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.24914, 0 )
+operation = 2
+radius = 40.0
+height = 377.506
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="BlockOut" index="11"]
+transform = Transform( -0.246779, 0, -0.969072, 0, 1, 0, 0.969072, 0, -0.246779, 32.5109, 11.6076, 10.6053 )
+width = 14.035
+height = 2.029
+depth = 15.0
+material = ExtResource( 6 )
+
+[node name="CSGBox8" type="CSGBox" parent="BlockOut/CSGBox7" index="0"]
+transform = Transform( 1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 5.95464, -6, 6.54951 )
+height = 13.0
+material = ExtResource( 6 )
+
+[node name="CSGBox9" type="CSGBox" parent="BlockOut/CSGBox7" index="1"]
+transform = Transform( 1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -5.96445, -6, 6.44825 )
+height = 13.0
+material = ExtResource( 6 )
+
+[node name="LevelEnvironment" parent="." index="4" instance=ExtResource( 2 )]
+
+[node name="Box" parent="." index="5" instance=ExtResource( 8 )]
+transform = Transform( 0.658059, 0, -0.752966, 0, 1, 0, 0.752966, 0, 0.658059, 35.2202, 1, 4.9059 )
+
+[node name="Box" parent="Box" index="0" instance=ExtResource( 7 )]
+
+[node name="Box2" parent="." index="6" instance=ExtResource( 8 )]
+transform = Transform( 0.912934, 0, -0.408107, 0, 1, 0, 0.408107, 0, 0.912934, 31.2922, 1, 7.48862 )
+
+[node name="Box" parent="Box2" index="0" instance=ExtResource( 7 )]
+
+[node name="Box3" parent="." index="7" instance=ExtResource( 8 )]
+transform = Transform( -0.0584003, 0, -0.998293, 0, 1, 0, 0.998293, 0, -0.0584003, 34.4219, 1, 9.1208 )
+
+[node name="Box" parent="Box3" index="0" instance=ExtResource( 7 )]
+
+[node name="ActionCollectible" parent="." index="8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1285, 2, 27.2365 )
+
+[node name="AbilityIcon" parent="ActionCollectible/Model" index="1"]
+material/0 = SubResource( 1 )
+
+[node name="Float" parent="ActionCollectible" index="4"]
+distance_down = 2.0
+position_met_threshold = 0.4
+
+[editable path="OutOfBounds"]
+[editable path="ActionCollectible"]

@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/Action.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/WallClimb/WallClimb.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=8]
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+flags_no_depth_test = true
+params_billboard_mode = 1
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="Environment" id=1]
+
+[sub_resource type="World" id=2]
+environment = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.192157, 0.760784, 0.388235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeIn"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:meter_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "FadeOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:meter_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:meter_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="WallClimb" groups=["Online"] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+display_input = false
+meter_alpha = 0.0
+wall_acceleration_value = Vector2( 65, 200 )
+wall_max_speed_value = Vector2( 10, 10 )
+
+[node name="Raycasts" type="Spatial" parent="." index="0"]
+
+[node name="Top" type="RayCast" parent="Raycasts" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0 )
+enabled = true
+cast_to = Vector3( 2, 0, 0 )
+
+[node name="Mantle" type="RayCast" parent="Raycasts" index="1"]
+enabled = true
+cast_to = Vector3( 1, 0, 0 )
+
+[node name="Bottom" type="RayCast" parent="Raycasts" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+enabled = true
+cast_to = Vector3( 2, 0, 0 )
+
+[node name="Down" type="RayCast" parent="Raycasts" index="3"]
+enabled = true
+cast_to = Vector3( 0, -2.5, 0 )
+
+[node name="Meter" type="Sprite3D" parent="." index="1"]
+material_override = SubResource( 8 )
+cast_shadow = 0
+offset = Vector2( -120, 100 )
+flip_v = true
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Viewport" type="Viewport" parent="Meter" index="0"]
+size = Vector2( 50, 150 )
+own_world = true
+world = SubResource( 2 )
+
+[node name="ProgressBar" type="ProgressBar" parent="Meter/Viewport" index="0"]
+margin_top = 150.0
+margin_right = 150.0
+margin_bottom = 200.0
+rect_rotation = 270.0
+custom_styles/fg = SubResource( 3 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Meter" index="1"]
+anims/FadeIn = SubResource( 4 )
+anims/FadeOut = SubResource( 5 )
+anims/RESET = SubResource( 7 )

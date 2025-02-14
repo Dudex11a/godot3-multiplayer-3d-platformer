@@ -1,0 +1,22 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/Autoload/General/Resources/Resources.gd" type="Script" id=1]
+[ext_resource path="res://Reused/ReusableSystems/Autoload/General/DebugText/DebugText.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionContainer/OptionContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/OptionItem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemInput/ItemInput.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemInput/InputButton/InputButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Reused/Resources/Icons/Refresh.png" type="Texture" id=7]
+[ext_resource path="res://Reused/ReusableSystems/LazyAudio/LazyAudio.tscn" type="PackedScene" id=8]
+
+[node name="Resources" type="Node"]
+script = ExtResource( 1 )
+debug_text_res = ExtResource( 2 )
+resources = {
+"input_button_node": ExtResource( 6 ),
+"item_input_node": ExtResource( 5 ),
+"lazy_audio_node": ExtResource( 8 ),
+"option_container_node": ExtResource( 3 ),
+"option_item_node": ExtResource( 4 ),
+"refresh_texture": ExtResource( 7 )
+}

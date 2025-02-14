@@ -1,0 +1,77 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Actor/Actor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Pawn/Actor/Character/Character.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/HitBox/BounceBox/BounceBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Reused/ReusableSystems/ShadowProjection/ShadowProjection.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Pawn/Actor/Character/Animation.gd" type="Script" id=5]
+[ext_resource path="res://Nodes/Pawn/Actor/ActorMechanic/Mechanics/MoveClouds/MoveClouds.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/AirDash/AirDash.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/Jump/Jump.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/WallClimb/WallClimb.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/Roll/Roll.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/Pickup/Pickup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Nodes/Pawn/Actor/Character/BounceBoxShape.tres" type="Shape" id=12]
+[ext_resource path="res://Nodes/Pawn/Actor/ActorMechanic/Mechanics/RotateWMoveInput/RotateWMoveInput.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/Crouch/Crouch.tscn" type="PackedScene" id=14]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.6
+height = 1.3
+
+[node name="Character" groups=["Game"] instance=ExtResource( 1 )]
+collision_layer = 1
+collision_mask = 1
+script = ExtResource( 2 )
+terminal_velocity = 50.0
+base_ground_friction = 1.0
+base_ground_grip_value = 1.0
+base_air_grip_value = 0.8
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.165511, 0 )
+shape = SubResource( 1 )
+
+[node name="Model" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+
+[node name="Animation" type="Node" parent="." index="2"]
+script = ExtResource( 5 )
+
+[node name="Roll" parent="Actions" index="0" instance=ExtResource( 10 )]
+action_index = 2
+
+[node name="Pickup" parent="Actions" index="1" instance=ExtResource( 11 )]
+action_index = 3
+
+[node name="Crouch" parent="Actions" index="2" instance=ExtResource( 14 )]
+action_index = 6
+
+[node name="WallClimb" parent="Actions" index="3" instance=ExtResource( 9 )]
+
+[node name="AirDash" parent="Actions" index="4" instance=ExtResource( 7 )]
+action_index = 2
+
+[node name="Jump" parent="Actions" index="5" instance=ExtResource( 8 )]
+
+[node name="ShadowProjection" parent="." index="4" instance=ExtResource( 4 )]
+
+[node name="RotateWMoveInput" parent="." index="5" instance=ExtResource( 13 )]
+lean_into_rotation = true
+
+[node name="BounceBox" parent="." index="6" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.761, 0 )
+priority = 0.0
+launch_velocity = Vector3( 0, 35, 0 )
+
+[node name="CollisionShape" parent="BounceBox" index="0"]
+shape = ExtResource( 12 )
+
+[node name="MoveClouds" parent="." index="7" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.667347, 0 )
+
+[connection signal="landed" from="." to="Animation" method="_on_Character_landed"]
+[connection signal="left_floor" from="." to="Animation" method="_on_Character_left_floor"]
+[connection signal="state_changed" from="." to="Animation" method="_on_Character_state_changed"]
+
+[editable path="BounceBox"]

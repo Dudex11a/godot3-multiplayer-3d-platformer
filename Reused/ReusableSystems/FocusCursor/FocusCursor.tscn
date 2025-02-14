@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/FocusCursor.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/9patch.png" type="Texture" id=3]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/ArrowUp.png" type="Texture" id=4]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/ArrowDown.png" type="Texture" id=5]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/ArrowRight.png" type="Texture" id=6]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/ArrowLeft.png" type="Texture" id=7]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/TextWindow/EnglishTextWindow/EnglishTextWindow.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform float breath_speed = 1.0;
+uniform vec3 base_color = vec3(1.0);
+uniform float opacity_to_reach = 0.2;
+
+void fragment() {
+	COLOR.rgb = base_color;
+	COLOR.a = abs((sin(3.14 * (TIME * breath_speed)) * opacity_to_reach));
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/breath_speed = 1.0
+shader_param/base_color = Vector3( 1, 1, 1 )
+shader_param/opacity_to_reach = 0.05
+
+[node name="FocusCursor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+visual_position_curve = SubResource( 1 )
+
+[node name="EnglishTextWindow" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="Visuals" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Cursor" type="Node2D" parent="Visuals"]
+
+[node name="Sprite" type="Sprite" parent="Visuals/Cursor"]
+visible = false
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="PositionTransition" type="Timer" parent="Visuals"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Selection" type="Control" parent="Visuals"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Breathing" type="ColorRect" parent="Visuals/Selection"]
+visible = false
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Visuals/Selection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Up" type="TextureRect" parent="Visuals/Selection"]
+visible = false
+anchor_right = 1.0
+margin_left = -5.0
+margin_top = -10.0
+margin_right = 5.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+stretch_mode = 6
+
+[node name="Right" type="TextureRect" parent="Visuals/Selection"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 10.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+stretch_mode = 6
+
+[node name="Down" type="TextureRect" parent="Visuals/Selection"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -5.0
+margin_right = 5.0
+margin_bottom = 10.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+stretch_mode = 6
+
+[node name="Left" type="TextureRect" parent="Visuals/Selection"]
+visible = false
+anchor_bottom = 1.0
+margin_left = -10.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+stretch_mode = 6
+
+[connection signal="item_rect_changed" from="Visuals/Selection" to="." method="_on_Selection_item_rect_changed"]

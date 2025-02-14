@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/TextureEditor/TextureEditorButton/TextureEditorButton.gd" type="Script" id=1]
+
+[node name="TextureButton" type="Button"]
+anchor_right = 0.488
+anchor_bottom = 0.167
+margin_right = 0.287964
+margin_bottom = -0.200005
+size_flags_horizontal = 3
+align = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

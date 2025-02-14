@@ -1,0 +1,25 @@
+shader_type canvas_item;
+
+uniform float value = 0.0;
+uniform sampler2D image;
+
+// Taken from https://www.shadertoy.com/view/XsjGDt originally
+//vec4 circle(vec2 uv, vec2 pos, float rad, vec3 color) {
+//	float d = length(pos - uv) - rad;
+//	float t = clamp(d, 0.0, 1.0);
+//	return vec4(color, 1.0 - t);
+//}
+
+float circle(vec2 position, float radius, float feather)
+{
+	return smoothstep(radius, radius + feather, length(position - vec2(0.5)));
+}
+
+
+void fragment() {
+	
+	float circle = circle(UV, value, 0.0);
+	
+	COLOR.rgb = texture(image, UV).rgb;
+	COLOR.a = circle;
+}

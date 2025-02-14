@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/TextWindow/TextWindow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/TextWindow/EnglishTextWindow/EnglishTextWindow.gd" type="Script" id=2]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/TextWindow/Keyboard/EnglishKeyboard/EnglishKeyboard.tscn" type="PackedScene" id=3]
+
+[node name="EnglishTextWindow" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="EnglishKeyboard" parent="." index="3" instance=ExtResource( 3 )]
+margin_top = 362.0

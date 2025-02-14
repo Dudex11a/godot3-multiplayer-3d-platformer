@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/ShadowProjection/ShadowProjection.gd" type="Script" id=1]
+[ext_resource path="res://Reused/ReusableSystems/ShadowProjection/Decal.shader" type="Shader" id=2]
+[ext_resource path="res://Reused/ReusableSystems/ShadowProjection/Shadow.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/albedo_tint = Color( 1, 1, 1, 1 )
+shader_param/emission_tint = Color( 0, 0, 0, 1 )
+shader_param/emission_strength = 0.0
+shader_param/occlusion_strength = 1.0
+shader_param/specular_strength = 0.0
+shader_param/metallic_strength = 0.0
+shader_param/animation_speed = 1.0
+shader_param/flipbook_columns_count = 1
+shader_param/one_shot = false
+shader_param/start_time = null
+shader_param/current_frame_blend = 0.0
+shader_param/use_normal_map = false
+shader_param/albedo = ExtResource( 3 )
+
+[node name="ShadowProjection" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Box" type="CSGBox" parent="."]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0 )
+cast_shadow = 0
+width = 5.0
+height = 5.0
+depth = 0.01
+material = SubResource( 1 )
+
+[node name="RayCast1" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -1000, 0 )
+collision_mask = 2
+
+[node name="RayCast2" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -1000, 0 )
+collision_mask = 2
+
+[node name="RayCast3" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -1000, 0 )
+collision_mask = 2
+
+[node name="CenterRayCast" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -1000, 0 )
+collision_mask = 2

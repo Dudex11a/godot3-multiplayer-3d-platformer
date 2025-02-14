@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/FileSelector/FileItem/FileItem.gd" type="Script" id=1]
+[ext_resource path="res://Reused/Resources/Icons/Trash.png" type="Texture" id=2]
+[ext_resource path="res://Reused/Resources/Icons/Forward.png" type="Texture" id=3]
+
+[node name="FileItem" type="Control"]
+anchor_right = 0.373
+anchor_bottom = 0.126
+margin_right = 0.559967
+margin_bottom = 0.279999
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="_Background" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Load" type="Button" parent="."]
+anchor_left = 0.625
+anchor_top = 0.055
+anchor_right = 0.792
+anchor_bottom = 0.934
+margin_left = -0.129211
+margin_top = -0.00500011
+margin_right = 0.0447693
+margin_bottom = 0.0059967
+rect_min_size = Vector2( 45, 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Load"]
+anchor_left = 0.062
+anchor_top = 0.062
+anchor_right = 0.937
+anchor_bottom = 0.937
+margin_left = 0.04
+margin_top = 0.04
+margin_right = 0.0399933
+margin_bottom = 0.0399933
+texture = ExtResource( 3 )
+stretch_mode = 6
+
+[node name="Delete" type="Button" parent="."]
+anchor_left = 0.82
+anchor_top = 0.055
+anchor_right = 0.987
+anchor_bottom = 0.934
+margin_left = 0.000305176
+margin_top = -0.00500011
+margin_right = 0.174316
+margin_bottom = 0.0059967
+rect_min_size = Vector2( 45, 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Delete"]
+anchor_left = 0.062
+anchor_top = 0.062
+anchor_right = 0.937
+anchor_bottom = 0.937
+margin_left = 0.04
+margin_top = 0.04
+margin_right = 0.0399933
+margin_bottom = 0.0399933
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="_Label" type="Label" parent="."]
+anchor_left = 0.01
+anchor_top = 0.11
+anchor_right = 0.615
+anchor_bottom = 0.945
+margin_left = 0.22
+margin_top = -5.01
+margin_right = 0.0299988
+margin_bottom = 0.00499725
+text = "Test Text"
+valign = 1
+
+[connection signal="mouse_entered" from="_Background" to="." method="_on_FileItem_mouse_entered"]
+[connection signal="pressed" from="Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="Delete" to="." method="_on_Delete_pressed"]

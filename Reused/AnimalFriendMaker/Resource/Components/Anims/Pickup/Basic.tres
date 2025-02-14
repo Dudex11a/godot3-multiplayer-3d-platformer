@@ -1,0 +1,14 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=3 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Pickup"
+
+[sub_resource type="AnimationNodeTimeSeek" id=2]
+
+[resource]
+graph_offset = Vector2( -240, 66 )
+nodes/Animation/node = SubResource( 1 )
+nodes/Animation/position = Vector2( -40, 161 )
+nodes/Seek/node = SubResource( 2 )
+nodes/Seek/position = Vector2( 140, 140 )
+node_connections = [ "output", 0, "Seek", "Seek", 0, "Animation" ]

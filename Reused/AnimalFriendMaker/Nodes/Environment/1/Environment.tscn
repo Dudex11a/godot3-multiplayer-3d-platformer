@@ -1,0 +1,176 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/Environment/1/Environment.tres" type="Environment" id=1]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/Environment/1/Environment.gd" type="Script" id=2]
+[ext_resource path="res://addons/cloud/Cloud.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/cloud/Cloud.shader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+render_priority = -119
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.6
+shader_param/max_density = 6.0
+shader_param/altitude = 1200.0
+shader_param/color = Color( 0.501961, 0.564706, 0.564706, 1 )
+shader_param/detail_noise = true
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=2]
+render_priority = -120
+next_pass = SubResource( 1 )
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.572436
+shader_param/max_density = 7.65382
+shader_param/altitude = 1218.89
+shader_param/color = Color( 0.606488, 0.656064, 0.656064, 1 )
+shader_param/detail_noise = true
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=3]
+render_priority = -121
+next_pass = SubResource( 2 )
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.547008
+shader_param/max_density = 9.17952
+shader_param/altitude = 1237.78
+shader_param/color = Color( 0.698717, 0.736674, 0.736674, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=4]
+render_priority = -122
+next_pass = SubResource( 3 )
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.525685
+shader_param/max_density = 10.4589
+shader_param/altitude = 1256.67
+shader_param/color = Color( 0.778649, 0.806536, 0.806536, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=5]
+render_priority = -123
+next_pass = SubResource( 4 )
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.510121
+shader_param/max_density = 11.3928
+shader_param/altitude = 1275.56
+shader_param/color = Color( 0.846284, 0.86565, 0.86565, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=6]
+render_priority = -124
+next_pass = SubResource( 5 )
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.501519
+shader_param/max_density = 11.9088
+shader_param/altitude = 1294.44
+shader_param/color = Color( 0.901622, 0.914016, 0.914016, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=7]
+render_priority = -125
+next_pass = SubResource( 6 )
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.500548
+shader_param/max_density = 11.9671
+shader_param/altitude = 1313.33
+shader_param/color = Color( 0.944662, 0.951634, 0.951634, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=8]
+render_priority = -126
+next_pass = SubResource( 7 )
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.507282
+shader_param/max_density = 11.5631
+shader_param/altitude = 1332.22
+shader_param/color = Color( 0.975406, 0.978504, 0.978504, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=9]
+render_priority = -127
+next_pass = SubResource( 8 )
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.521199
+shader_param/max_density = 10.7281
+shader_param/altitude = 1351.11
+shader_param/color = Color( 0.993851, 0.994626, 0.994626, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=10]
+render_priority = -128
+next_pass = SubResource( 9 )
+shader = ExtResource( 4 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.541221
+shader_param/max_density = 9.52671
+shader_param/altitude = 1370.0
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[node name="LevelEnvironment" type="WorldEnvironment"]
+environment = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.921626, 0.143661, -0.360509, 0.257807, 0.467704, 0.845452, 0.29007, -0.872132, 0.394011, -16.3885, 29.1544, -2.7753 )
+light_energy = 0.18
+shadow_enabled = true
+
+[node name="Cloud" parent="." instance=ExtResource( 3 )]
+transform = Transform( 700, 0, 0, 0, 700, 0, 0, 0, 700, 0, -100, 0 )
+material_override = SubResource( 10 )
+shade_color = Color( 0.501961, 0.564706, 0.564706, 1 )
+draw_count = 10
+cloud_speed = Vector2( 15, 15 )
+cloud_transform_speed = Vector2( 0.001, 0.001 )
+cloud_thickness = 170.0
+cloud_altitude = 1200.0
+cloud_min_density_low = 0.5
+auto_follow_camera = false

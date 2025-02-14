@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Pawn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Pawn/Actor/Actor.gd" type="Script" id=2]
+
+[node name="Actor" groups=["Online"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+disable_physics_process = false
+can_land = true
+base_gravity_value = 1.0
+terminal_velocity = 55.0
+base_air_acceleration_multiplier = 0.5
+base_run_acceleration_value = 1.0
+base_run_acceleration_multiplier = 90.0
+base_max_run_speed = 22.0
+base_max_walk_speed = 5.0
+base_ground_friction = 0.1
+base_air_friction = 0.1
+base_ground_grip_value = 0.5
+base_air_grip_value = 0.0
+weight = 1.0
+default_wall_slide_angle = 0.78
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+
+[node name="Model" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Actions" type="Spatial" parent="." index="2"]

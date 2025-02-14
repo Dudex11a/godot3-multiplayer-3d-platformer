@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Actor/Collectible/MainCollectible/MainCollectible.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Pawn/Actor/Collectible/MainCollectible/ActionCollectible/ActionCollectible.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_diffuse_mode = 4
+params_specular_mode = 3
+albedo_color = Color( 0.517647, 0.517647, 0.517647, 0.788235 )
+emission_enabled = true
+emission = Color( 0.172549, 0.0980392, 1, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=2]
+material = SubResource( 1 )
+radius = 1.5
+height = 3.0
+
+[sub_resource type="QuadMesh" id=3]
+size = Vector2( 2.4, 2.4 )
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+render_priority = 1
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_diffuse_mode = 4
+params_specular_mode = 3
+params_billboard_mode = 1
+albedo_color = Color( 1.5, 1.5, 1.5, 1 )
+metallic_specular = 0.0
+roughness = 0.02
+transmission_enabled = true
+transmission = Color( 0, 0, 0, 1 )
+
+[node name="ActionCollectible" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+disable_physics_process = false
+can_land = true
+base_ground_friction = 1.0
+base_air_friction = 0.5
+base_ground_grip_value = 1.0
+base_air_grip_value = 1.0
+collectible_type = "Action"
+collectible_id = "Jump"
+collectible_name = "Jump"
+collectible_message = "You got the %s Action!"
+default_action_index = 1
+
+[node name="Sphere" type="MeshInstance" parent="Model" index="0"]
+mesh = SubResource( 2 )
+
+[node name="AbilityIcon" type="MeshInstance" parent="Model" index="1"]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )

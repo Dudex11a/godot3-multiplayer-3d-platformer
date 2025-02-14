@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/OptionItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemInput/ItemInput.gd" type="Script" id=2]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemInput/AddInput/AddInput.tscn" type="PackedScene" id=3]
+
+[node name="ItemInput" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." index="3"]
+anchor_left = 0.383
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.49998
+margin_top = 5.0
+margin_right = -6.0
+margin_bottom = -5.0
+follow_focus = true
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputContainer" type="HBoxContainer" parent="ScrollContainer" index="0"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="AddInput" parent="ScrollContainer/InputContainer" index="0" instance=ExtResource( 3 )]
+
+[connection signal="pressed_with_focus" from="ScrollContainer/InputContainer/AddInput" to="." method="_on_AddInput_pressed_with_focus"]
+
+[editable path="ScrollContainer/InputContainer/AddInput"]

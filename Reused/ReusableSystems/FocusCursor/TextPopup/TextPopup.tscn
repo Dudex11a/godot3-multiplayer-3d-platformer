@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/TextPopup/Background.gd" type="Script" id=1]
+[ext_resource path="res://Reused/ReusableSystems/FocusCursor/TextPopup/TextPopup.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Close"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:close_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:open_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:open_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="TextPopup" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 100.0
+margin_bottom = 100.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Text" type="Label" parent="."]
+margin_right = 172.0
+margin_bottom = 27.0
+text = "Text Popup Example"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Close = SubResource( 2 )
+anims/Open = SubResource( 1 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="resized" from="Text" to="." method="_on_Text_resized"]
+[connection signal="resized" from="Text" to="Background" method="_on_Text_resized"]

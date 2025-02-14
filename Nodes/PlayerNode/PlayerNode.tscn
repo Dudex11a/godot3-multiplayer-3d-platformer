@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Actor/Character/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/PlayerNode/PlayerNode.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/PlayerNode/Viewport.gd" type="Script" id=3]
+
+[node name="Player" type="ViewportContainer" groups=["Game", "Settings"]]
+margin_right = 1280.0
+margin_bottom = 720.0
+stretch = true
+script = ExtResource( 2 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1280, 720 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_3d = true
+shadow_atlas_size = 4
+script = ExtResource( 3 )
+
+[node name="Character" parent="Viewport" instance=ExtResource( 1 )]
+
+[connection signal="action_added" from="Viewport/Character" to="." method="_on_Character_action_added"]
+[connection signal="action_removed" from="Viewport/Character" to="." method="_on_Character_action_removed"]

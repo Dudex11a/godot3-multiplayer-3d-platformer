@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Mesh/Title.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Environment" id=1]
+ambient_light_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+ambient_light_energy = 5.0
+
+[node name="Title3D" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.071, 1.7, 25 )
+environment = SubResource( 1 )
+current = true
+fov = 10.0
+size = 4.5
+
+[node name="Title" parent="." instance=ExtResource( 1 )]

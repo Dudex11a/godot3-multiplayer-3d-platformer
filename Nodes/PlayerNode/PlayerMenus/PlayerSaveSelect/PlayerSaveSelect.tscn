@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Nodes/PlayerNode/PlayerMenus/PlayerSaveSelect/PlayerSaveSelect.gd" type="Script" id=1]
+[ext_resource path="res://Reused/ReusableSystems/FileSelector/FileSelector.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/PlayerNode/PlayerMenus/PlayerSaveSelect/SaveFileSelector.gd" type="Script" id=3]
+
+[node name="PlayerSaveSelect" type="Control" groups=["Game"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="_Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameButton" type="Button" parent="."]
+anchor_left = 0.003
+anchor_right = 0.12
+margin_left = -0.0909886
+margin_top = 3.5345
+margin_right = 0.383011
+margin_bottom = 53.5345
+text = "New Game"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="."]
+anchor_left = 0.879
+anchor_right = 0.996
+margin_left = -0.353882
+margin_top = 4.0
+margin_right = 0.120117
+margin_bottom = 54.0
+text = "Exit"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileSelector" parent="." instance=ExtResource( 2 )]
+margin_top = 62.0
+script = ExtResource( 3 )
+valid_extentions = [ "json" ]
+path = "user://Players/"
+
+[connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="file_selected" from="FileSelector" to="." method="_on_FileSelector_file_selected"]
+[connection signal="focus_cursor_exit_file_list" from="FileSelector" to="." method="_on_FileSelector_focus_cursor_exit_file_list"]
+[connection signal="list_looped" from="FileSelector" to="." method="_on_FileSelector_list_looped"]

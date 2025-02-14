@@ -1,0 +1,293 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Reused/Resources/Font/SourceSansPro-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Reused/Resources/Icons/Input/KeySpace.png" type="Texture" id=3]
+[ext_resource path="res://Reused/Resources/Icons/Input/ControllerBottomButton.png" type="Texture" id=4]
+[ext_resource path="res://Nodes/Main/TitleScrene/Title3D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Main/TitleScreen.gd" type="Script" id=6]
+[ext_resource path="res://Resources/Image/Cog.png" type="Texture" id=7]
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 1.4, 0, 0, Vector2( 0.339623, 0.645455 ), 0.781327, 0.781327, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+rotation_curve = SubResource( 2 )
+
+[node name="3DTitleContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.652778
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Viewport" type="Viewport" parent="3DTitleContainer"]
+size = Vector2( 1280, 470 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Title3D" parent="3DTitleContainer/Viewport" instance=ExtResource( 5 )]
+
+[node name="BlackBar" type="ColorRect" parent="."]
+anchor_top = 0.728
+anchor_right = 1.0
+anchor_bottom = 0.728
+margin_top = -50.3491
+margin_bottom = 49.6509
+color = Color( 0, 0, 0, 0.784314 )
+
+[node name="Label" type="RichTextLabel" parent="BlackBar"]
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.72
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Press [START] or [img=80x40]res://Reused/Resources/Icons/Input/KeySpace.png[/img] to start![/center]"
+text = "Press [START] or  to start!"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ControllerButton" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.727
+anchor_right = 0.5
+anchor_bottom = 0.727
+margin_left = -189.953
+margin_top = -45.4377
+margin_right = -98.9535
+margin_bottom = 45.5623
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyboardButton" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.727
+anchor_right = 0.5
+anchor_bottom = 0.727
+margin_left = -33.8779
+margin_top = -38.9126
+margin_right = 129.122
+margin_bottom = 42.0874
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LetterHitboxes" type="AspectRatioContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 0.653
+margin_bottom = -0.160034
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LettersContainer" type="Control" parent="LetterHitboxes"]
+margin_left = 405.0
+margin_right = 875.0
+margin_bottom = 470.0
+
+[node name="P1" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = -0.0617021
+anchor_top = 0.0957447
+anchor_right = 0.174362
+anchor_bottom = 0.431809
+margin_right = 0.0499992
+margin_bottom = 0.0499992
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="A1" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.182979
+anchor_top = 0.110638
+anchor_right = 0.440319
+anchor_bottom = 0.444575
+margin_right = 0.0499992
+margin_bottom = 0.0499992
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="L_1" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.455319
+anchor_top = 0.110638
+anchor_right = 0.604149
+anchor_bottom = 0.446702
+margin_right = 0.0499992
+margin_bottom = 0.0499992
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="L_2" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.604255
+anchor_top = 0.344681
+anchor_right = 0.682872
+anchor_bottom = 0.444575
+margin_right = 0.0499992
+margin_bottom = 0.0499992
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Apostrophe" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.612766
+anchor_top = 0.110638
+anchor_right = 0.729681
+anchor_bottom = 0.329681
+margin_right = 0.0500031
+margin_bottom = 0.0500031
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Apostrophe_2" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.689362
+anchor_top = 0.329787
+anchor_right = 0.729681
+anchor_bottom = 0.455213
+margin_right = 0.0500031
+margin_bottom = 0.0500031
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="N1" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.73617
+anchor_top = 0.119149
+anchor_right = 0.999894
+anchor_bottom = 0.459468
+margin_right = 0.0500031
+margin_bottom = 0.0500031
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="A2" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = -0.2
+anchor_top = 0.448936
+anchor_right = 0.0403191
+anchor_bottom = 0.759468
+margin_right = 0.0500031
+margin_bottom = 0.0500031
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="R" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.0489362
+anchor_top = 0.465957
+anchor_right = 0.299894
+anchor_bottom = 0.763723
+margin_right = 0.0500031
+margin_bottom = 0.0500031
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="O" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.302128
+anchor_top = 0.461702
+anchor_right = 0.502021
+anchor_bottom = 0.778617
+margin_right = 0.0500031
+margin_bottom = 0.0500031
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="U" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.517021
+anchor_top = 0.482979
+anchor_right = 0.740319
+anchor_bottom = 0.744574
+margin_right = 0.0500031
+margin_bottom = 0.0500031
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="N2" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.746809
+anchor_top = 0.482979
+anchor_right = 0.961596
+anchor_bottom = 0.767979
+margin_right = 0.0500031
+margin_bottom = 0.0500031
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="D" type="ColorRect" parent="LetterHitboxes/LettersContainer"]
+anchor_left = 0.965957
+anchor_top = 0.46383
+anchor_right = 1.19777
+anchor_bottom = 0.763723
+margin_right = 0.0500031
+margin_bottom = 0.0500031
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SettingsButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -132.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = 55.0
+text = "Settings"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="SettingsButton"]
+anchor_left = 0.606299
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+texture = ExtResource( 7 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_SettingsButton_pressed"]

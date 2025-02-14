@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/OptionItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemFloat/ItemFloat.gd" type="Script" id=2]
+[ext_resource path="res://Reused/ReusableSystems/DTextInput/DTextInput.tscn" type="PackedScene" id=3]
+
+[node name="ItemFloat" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+default_value = [ 0.0 ]
+
+[node name="ValueInput" parent="." index="3" instance=ExtResource( 3 )]
+anchor_left = 0.378
+anchor_right = 0.997
+margin_left = 8.77721
+margin_top = 5.0
+margin_right = -61.0533
+margin_bottom = -4.96
+
+[connection signal="text_changed" from="ValueInput" to="." method="_on_ValueInput_text_changed"]

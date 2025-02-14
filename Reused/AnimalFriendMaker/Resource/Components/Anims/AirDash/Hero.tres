@@ -1,0 +1,29 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=7 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "AirDashHold1_loop"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "AirDashReleaseHold1_loop"
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "AirDashRelease1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[resource]
+states/Charge/node = SubResource( 4 )
+states/Charge/position = Vector2( 58, 136 )
+states/Hold/node = SubResource( 2 )
+states/Hold/position = Vector2( 583, 136 )
+states/Release/node = SubResource( 1 )
+states/Release/position = Vector2( 305, 40 )
+transitions = [ "Release", "Hold", SubResource( 3 ), "Charge", "Release", SubResource( 5 ), "Hold", "Charge", SubResource( 6 ) ]
+start_node = "Charge"
+graph_offset = Vector2( -189, -14 )

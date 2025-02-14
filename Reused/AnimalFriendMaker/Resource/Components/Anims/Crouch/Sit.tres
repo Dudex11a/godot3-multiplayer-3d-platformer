@@ -1,0 +1,13 @@
+[gd_resource type="AnimationNodeBlendSpace1D" load_steps=3 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Sit1Idle_loop"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Sit1Forward_loop"
+
+[resource]
+blend_point_0/node = SubResource( 1 )
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource( 2 )
+blend_point_1/pos = 1.0

@@ -1,0 +1,181 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Arm/Basic 1/Texture/ColorTexture1.png" type="Texture" id=1]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Body/Basic 1/Texture/ColorTexture1.png" type="Texture" id=2]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Leg/Basic 1/Texture/ColorTexture1.png" type="Texture" id=3]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Material/Part/TestPalette.png" type="Texture" id=4]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriend/AnimalFriend.gd" type="Script" id=5]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Head/Cat 1/Scene.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/AnimationPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Tail/Basic 1/Scene.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Material/Part/PartShader.tres" type="Shader" id=9]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Material/BasicOutline.material" type="Material" id=10]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Body/Basic 1/Mesh.tres" type="ArrayMesh" id=11]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Leg/Basic 1/Mesh_R.tres" type="ArrayMesh" id=12]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Arm/Basic 1/Mesh_L.tres" type="ArrayMesh" id=13]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Arm/Basic 1/Mesh_R.tres" type="ArrayMesh" id=14]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Leg/Basic 1/Mesh_L.tres" type="ArrayMesh" id=15]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Arm/Basic 1/Skin_L.tres" type="Skin" id=16]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Arm/Basic 1/Skin_R.tres" type="Skin" id=17]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Body/Basic 1/Skin.tres" type="Skin" id=18]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Leg/Basic 1/Skin_R.tres" type="Skin" id=19]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Leg/Basic 1/Skin_L.tres" type="Skin" id=20]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Components/Skeleton.tscn" type="PackedScene" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+xfade_time = 0.05
+
+[sub_resource type="ShaderMaterial" id=1]
+next_pass = ExtResource( 10 )
+shader = ExtResource( 9 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = null
+shader_param/metallic = null
+shader_param/roughness = 0.0
+shader_param/point_size = 0.0
+shader_param/uv_scale = Vector3( 1, 1, 1 )
+shader_param/uv_offset = Vector3( 0, 0, 0 )
+shader_param/color_sampler = ExtResource( 2 )
+shader_param/palette = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=2]
+next_pass = ExtResource( 10 )
+shader = ExtResource( 9 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = null
+shader_param/metallic = null
+shader_param/roughness = 0.0
+shader_param/point_size = 0.0
+shader_param/uv_scale = Vector3( 1, 1, 1 )
+shader_param/uv_offset = Vector3( 0, 0, 0 )
+shader_param/color_sampler = ExtResource( 1 )
+shader_param/palette = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=3]
+next_pass = ExtResource( 10 )
+shader = ExtResource( 9 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = null
+shader_param/metallic = null
+shader_param/roughness = 0.0
+shader_param/point_size = 0.0
+shader_param/uv_scale = Vector3( 1, 1, 1 )
+shader_param/uv_offset = Vector3( 0, 0, 0 )
+shader_param/color_sampler = ExtResource( 1 )
+shader_param/palette = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=4]
+next_pass = ExtResource( 10 )
+shader = ExtResource( 9 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = null
+shader_param/metallic = null
+shader_param/roughness = 0.0
+shader_param/point_size = 0.0
+shader_param/uv_scale = Vector3( 1, 1, 1 )
+shader_param/uv_offset = Vector3( 0, 0, 0 )
+shader_param/color_sampler = ExtResource( 3 )
+shader_param/palette = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=5]
+next_pass = ExtResource( 10 )
+shader = ExtResource( 9 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = null
+shader_param/metallic = null
+shader_param/roughness = 0.0
+shader_param/point_size = 0.0
+shader_param/uv_scale = Vector3( 1, 1, 1 )
+shader_param/uv_offset = Vector3( 0, 0, 0 )
+shader_param/color_sampler = ExtResource( 3 )
+shader_param/palette = ExtResource( 4 )
+
+[sub_resource type="AnimationNodeStateMachine" id=11]
+graph_offset = Vector2( -222, -168 )
+
+[sub_resource type="AnimationNodeTimeScale" id=7]
+
+[sub_resource type="AnimationNodeStateMachine" id=14]
+
+[sub_resource type="AnimationNodeBlend2" id=6]
+filter_enabled = true
+filters = [ "rigify_rig_deform/Skeleton:DEF-forearm.L", "rigify_rig_deform/Skeleton:DEF-forearm.L.001", "rigify_rig_deform/Skeleton:DEF-forearm.R", "rigify_rig_deform/Skeleton:DEF-forearm.R.001", "rigify_rig_deform/Skeleton:DEF-hand.L", "rigify_rig_deform/Skeleton:DEF-hand.R", "rigify_rig_deform/Skeleton:DEF-head", "rigify_rig_deform/Skeleton:DEF-neck", "rigify_rig_deform/Skeleton:DEF-spine.001", "rigify_rig_deform/Skeleton:DEF-spine.002", "rigify_rig_deform/Skeleton:DEF-spine.003", "rigify_rig_deform/Skeleton:DEF-spine.004", "rigify_rig_deform/Skeleton:DEF-upper_arm.L", "rigify_rig_deform/Skeleton:DEF-upper_arm.L.001", "rigify_rig_deform/Skeleton:DEF-upper_arm.R", "rigify_rig_deform/Skeleton:DEF-upper_arm.R.001" ]
+
+[sub_resource type="AnimationNodeBlendTree" id=10]
+graph_offset = Vector2( -137, 0 )
+nodes/FullBody/node = SubResource( 11 )
+nodes/FullBody/position = Vector2( 100, 0 )
+nodes/FullBodySpeed/node = SubResource( 7 )
+nodes/FullBodySpeed/position = Vector2( 300, 0 )
+nodes/UpperBody/node = SubResource( 14 )
+nodes/UpperBody/position = Vector2( 100, 180 )
+nodes/UpperBodyBlend/node = SubResource( 6 )
+nodes/UpperBodyBlend/position = Vector2( 540, 60 )
+nodes/output/position = Vector2( 780, 20 )
+node_connections = [ "FullBodySpeed", 0, "FullBody", "UpperBodyBlend", 0, "FullBodySpeed", "UpperBodyBlend", 1, "UpperBody", "output", 0, "UpperBodyBlend" ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=15]
+
+[node name="AnimalFriend" type="Spatial"]
+script = ExtResource( 5 )
+state_machine_transition = SubResource( 16 )
+
+[node name="rigify_rig_deform" type="Spatial" parent="."]
+
+[node name="Skeleton" parent="rigify_rig_deform" instance=ExtResource( 21 )]
+
+[node name="Body" type="MeshInstance" parent="rigify_rig_deform/Skeleton"]
+mesh = ExtResource( 11 )
+skin = ExtResource( 18 )
+material/0 = SubResource( 1 )
+
+[node name="Arm_L" type="MeshInstance" parent="rigify_rig_deform/Skeleton"]
+mesh = ExtResource( 13 )
+skin = ExtResource( 16 )
+material/0 = SubResource( 2 )
+
+[node name="Arm_R" type="MeshInstance" parent="rigify_rig_deform/Skeleton"]
+mesh = ExtResource( 14 )
+skin = ExtResource( 17 )
+material/0 = SubResource( 3 )
+
+[node name="Leg_L" type="MeshInstance" parent="rigify_rig_deform/Skeleton"]
+mesh = ExtResource( 15 )
+skin = ExtResource( 20 )
+material/0 = SubResource( 4 )
+
+[node name="Leg_R" type="MeshInstance" parent="rigify_rig_deform/Skeleton"]
+mesh = ExtResource( 12 )
+skin = ExtResource( 19 )
+material/0 = SubResource( 5 )
+
+[node name="HeadBoneAttachment" type="BoneAttachment" parent="rigify_rig_deform/Skeleton"]
+transform = Transform( 0.964975, -8.6226e-08, -0.262344, 3.55406e-08, 0.999997, 7.24387e-08, 0.262342, -2.64946e-08, 0.964973, -0.0111885, 2.19652, -0.0994907 )
+bone_name = "DEF-neck"
+
+[node name="Cat1Armature" parent="rigify_rig_deform/Skeleton/HeadBoneAttachment" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27616e-08, -0.0802135, -0.103237 )
+
+[node name="TailBoneAttachment" type="BoneAttachment" parent="rigify_rig_deform/Skeleton"]
+transform = Transform( 0.798362, -0.00732826, 0.602132, 9.53672e-09, 0.999924, 0.0121695, -0.602177, -0.00971559, 0.798302, -0.00926451, 1.38115, -0.0969401 )
+bone_name = "DEF-spine.001"
+
+[node name="LongTailArmature" parent="rigify_rig_deform/Skeleton/TailBoneAttachment" instance=ExtResource( 8 )]
+transform = Transform( 1, -5.82077e-11, 3.72529e-09, 5.82077e-11, 1, -1.86265e-09, -7.45058e-09, 0, 1, 0.000386596, -0.100646, -0.360368 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 10 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/FullBody/playback = SubResource( 13 )
+parameters/FullBodySpeed/scale = 1.0
+parameters/UpperBody/playback = SubResource( 15 )
+parameters/UpperBodyBlend/blend_amount = 0.0
+
+[node name="AnimationPlayer" parent="." instance=ExtResource( 7 )]
+
+[node name="BlinkTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]

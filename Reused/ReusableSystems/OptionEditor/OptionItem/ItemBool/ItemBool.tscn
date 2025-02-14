@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/OptionItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemBool/ItemBool.gd" type="Script" id=2]
+[ext_resource path="res://Reused/ReusableSystems/Theme/1/1.tres" type="Theme" id=3]
+
+[node name="ItemBool" instance=ExtResource( 1 )]
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+default_value = [ false ]
+
+[node name="BoolInput" type="CheckButton" parent="." index="3"]
+anchor_left = 0.388
+anchor_right = 0.388
+anchor_bottom = 1.0
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" parent="." index="4"]
+anchor_bottom = 1.001
+margin_bottom = -5.01997
+
+[connection signal="pressed" from="BoolInput" to="." method="_on_BoolInput_pressed"]

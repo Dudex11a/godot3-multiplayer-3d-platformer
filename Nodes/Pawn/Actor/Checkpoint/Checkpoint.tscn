@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Actor/Actor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Pawn/Actor/Checkpoint/Checkpoint.gd" type="Script" id=3]
+[ext_resource path="res://Nodes/Pawn/Actor/Checkpoint/CheckpointMesh.tscn" type="PackedScene" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1, 2.5 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.611765, 0.611765, 0.611765, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 0.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CylinderShape" id=4]
+height = 5.0
+radius = 1.22
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Model/LampCheckpoint/Cube:material/1:emission_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "TurnLightOff"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Model/LampCheckpoint/Cube:material/1:emission_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "TurnLightOn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Model/LampCheckpoint/Cube:material/1:emission_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2.0 ]
+}
+
+[node name="Checkpoint" groups=["Game"] instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+base_air_friction = 0.0
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="LampCheckpoint" parent="Model" index="0" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+
+[node name="Cube" parent="Model/LampCheckpoint" index="0"]
+material/1 = SubResource( 9 )
+
+[node name="CharacterDetection" type="Area" parent="." index="2"]
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="CharacterDetection" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503862, 0 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+anims/RESET = SubResource( 8 )
+anims/TurnLightOff = SubResource( 5 )
+anims/TurnLightOn = SubResource( 6 )
+
+[connection signal="body_entered" from="CharacterDetection" to="." method="_on_CharacterDetection_body_entered"]
+
+[editable path="Model/LampCheckpoint"]

@@ -1,0 +1,183 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemFloat/ItemFloat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Image/Back.png" type="Texture" id=2]
+[ext_resource path="res://Reused/ReusableSystems/DTabContainer/DTabContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/GeneralMenus/Online/Online.gd" type="Script" id=4]
+[ext_resource path="res://Nodes/GeneralMenus/Online/Host.gd" type="Script" id=5]
+[ext_resource path="res://Nodes/GeneralMenus/Online/BackButton.gd" type="Script" id=6]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemString/ItemString.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionEditor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/GeneralMenus/Online/Connect.gd" type="Script" id=9]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionContainer/OptionContainer.tscn" type="PackedScene" id=10]
+
+[node name="Online" type="Control" groups=["Game"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="_Background" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="_TabContainer" parent="." instance=ExtResource( 3 )]
+
+[node name="Content" parent="_TabContainer" index="1"]
+margin_right = -5.0
+
+[node name="Host" type="Control" parent="_TabContainer/Content" index="0"]
+anchor_left = -0.000279435
+anchor_right = 1.0
+anchor_bottom = 1.00012
+margin_left = 0.35628
+margin_right = 5.0
+margin_bottom = -0.0780029
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HostOptionEditor" parent="_TabContainer/Content/Host" instance=ExtResource( 8 )]
+file_location = "user://HostOptions.json"
+
+[node name="Options" parent="_TabContainer/Content/Host/HostOptionEditor" instance=ExtResource( 10 )]
+
+[node name="OptionContainer" parent="_TabContainer/Content/Host/HostOptionEditor/Options" index="0"]
+margin_bottom = 660.001
+
+[node name="Max Players" parent="_TabContainer/Content/Host/HostOptionEditor/Options/OptionContainer" index="0" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1280.0
+margin_bottom = 60.0
+default_value = [ 10.0 ]
+
+[node name="Port" parent="_TabContainer/Content/Host/HostOptionEditor/Options/OptionContainer" index="1" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 64.0
+margin_right = 1280.0
+margin_bottom = 124.0
+default_value = [ 42069.0 ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="_TabContainer/Content/Host"]
+anchor_top = 0.907
+anchor_right = 1.0
+anchor_bottom = 0.987
+margin_top = -0.621155
+margin_bottom = -0.421265
+alignment = 1
+
+[node name="HostButton" type="Button" parent="_TabContainer/Content/Host/HBoxContainer"]
+margin_left = 561.0
+margin_right = 718.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 100, 0 )
+focus_neighbour_top = NodePath("../../HostOptionEditor/Options/OptionContainer/Port")
+focus_neighbour_bottom = NodePath("../../../../../BackButton")
+toggle_mode = true
+text = "Host on Network"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DiscordHostButton" type="Button" parent="_TabContainer/Content/Host/HBoxContainer"]
+visible = false
+margin_left = 718.0
+margin_right = 866.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 100, 0 )
+focus_neighbour_top = NodePath("../../HostOptionEditor/Options/OptionContainer/Port")
+focus_neighbour_bottom = NodePath("../../../../../BackButton")
+toggle_mode = true
+text = "Host on Discord"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Connect" type="Control" parent="_TabContainer/Content" index="1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 5.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConnectOptionEditor" parent="_TabContainer/Content/Connect" instance=ExtResource( 8 )]
+file_location = "user://ConnectOptions.json"
+
+[node name="Options" parent="_TabContainer/Content/Connect/ConnectOptionEditor" instance=ExtResource( 10 )]
+
+[node name="OptionContainer" parent="_TabContainer/Content/Connect/ConnectOptionEditor/Options" index="0"]
+margin_bottom = 660.0
+
+[node name="IP Address" parent="_TabContainer/Content/Connect/ConnectOptionEditor/Options/OptionContainer" index="0" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1280.0
+margin_bottom = 60.0
+default_value = [ "127.0.0.1" ]
+
+[node name="Port" parent="_TabContainer/Content/Connect/ConnectOptionEditor/Options/OptionContainer" index="1" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 64.0
+margin_right = 1280.0
+margin_bottom = 124.0
+default_value = [ 42069.0 ]
+
+[node name="ConnectButton" type="Button" parent="_TabContainer/Content/Connect"]
+anchor_left = 0.425
+anchor_top = 0.906
+anchor_right = 0.594
+anchor_bottom = 0.986
+margin_left = -1.02029
+margin_top = 0.373169
+margin_right = -1.07629
+margin_bottom = 0.373169
+focus_neighbour_top = NodePath("../ConnectOptionEditor/Options/OptionContainer/Port")
+toggle_mode = true
+text = "Connect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 105.0
+margin_bottom = 60.0
+focus_neighbour_top = NodePath("../_TabContainer/Content/Host/HBoxContainer/HostButton")
+focus_neighbour_bottom = NodePath("..")
+text = "Back"
+icon = ExtResource( 2 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="focus_out_up" from="_TabContainer" to="." method="_on__TabContainer_focus_out_up"]
+[connection signal="tab_looped" from="_TabContainer" to="." method="_on__TabContainer_tab_looped"]
+[connection signal="looped" from="_TabContainer/Content/Host/HostOptionEditor/Options" to="." method="_on_HostOptionEditor_looped"]
+[connection signal="pressed" from="_TabContainer/Content/Host/HBoxContainer/HostButton" to="." method="_on_HostButton_pressed"]
+[connection signal="pressed" from="_TabContainer/Content/Host/HBoxContainer/DiscordHostButton" to="." method="_on_DiscordHostButton_pressed"]
+[connection signal="looped" from="_TabContainer/Content/Connect/ConnectOptionEditor/Options" to="." method="_on_ConnectOptionEditor_looped"]
+[connection signal="pressed" from="_TabContainer/Content/Connect/ConnectButton" to="." method="_on_ConnectButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="ui_left_action" from="BackButton" to="." method="_on_BackButton_ui_left_action"]
+[connection signal="ui_right_action" from="BackButton" to="." method="_on_BackButton_ui_right_action"]
+
+[editable path="_TabContainer"]
+[editable path="_TabContainer/Content/Host/HostOptionEditor"]
+[editable path="_TabContainer/Content/Host/HostOptionEditor/Options"]
+[editable path="_TabContainer/Content/Connect/ConnectOptionEditor"]
+[editable path="_TabContainer/Content/Connect/ConnectOptionEditor/Options"]

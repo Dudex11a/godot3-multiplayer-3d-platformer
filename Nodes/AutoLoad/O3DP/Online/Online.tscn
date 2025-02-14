@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Nodes/Main/Online.gd" type="Script" id=1]
+
+[node name="Online" type="Node" groups=["Game"]]
+script = ExtResource( 1 )
+
+[node name="NetworkUpdate" type="Timer" parent="."]
+wait_time = 0.016
+
+[connection signal="timeout" from="NetworkUpdate" to="." method="_on_NetworkUpdate_timeout"]

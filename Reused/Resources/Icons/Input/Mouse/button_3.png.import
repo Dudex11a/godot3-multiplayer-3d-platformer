@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/button_3.png-47e54b5fa815b94f144a6c5a46c449bc.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Reused/Resources/Icons/Input/Mouse/button_3.png"
+dest_files=[ "res://.import/button_3.png-47e54b5fa815b94f144a6c5a46c449bc.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.48
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=0
+size_limit=0
+detect_3d=false
+svg/scale=1.0

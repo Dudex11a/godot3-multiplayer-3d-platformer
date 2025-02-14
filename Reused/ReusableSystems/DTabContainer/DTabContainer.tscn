@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/DTabContainer/DTabContainer.gd" type="Script" id=1]
+[ext_resource path="res://Reused/ReusableSystems/DTabContainer/DTab/DTab.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Reused/ReusableSystems/DTabContainer/Content.gd" type="Script" id=3]
+[ext_resource path="res://Reused/ReusableSystems/DTabContainer/TabHBoxContainer.gd" type="Script" id=4]
+
+[node name="DTabContainer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+dtab_res = ExtResource( 2 )
+
+[node name="TabScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+margin_top = 5.0
+margin_bottom = 60.0
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TabHBoxContainer" type="HBoxContainer" parent="TabScrollContainer"]
+margin_right = 1280.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+script = ExtResource( 4 )
+
+[node name="Content" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 60.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="focus_cursor_entered" from="TabScrollContainer/TabHBoxContainer" to="." method="_on_TabHBoxContainer_focus_cursor_entered"]
+[connection signal="tab_looped" from="TabScrollContainer/TabHBoxContainer" to="." method="_on_TabHBoxContainer_tab_looped"]

@@ -1,0 +1,204 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Actor/Collectible/Collectible.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Pawn/Actor/Collectible/MainCollectible/MainCollectible.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Pawn/Actor/ActorMechanic/Mechanics/SpinAnim/SpinAnim.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Pawn/Actor/ActorMechanic/Mechanics/Float/Float.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Reused/Particles/HazyParticles/YRotatingParticleShader.tres" type="Shader" id=5]
+[ext_resource path="res://Reused/Particles/HazyParticles/MeshMaterial.tres" type="Material" id=6]
+
+[sub_resource type="CapsuleShape" id=13]
+radius = 0.6
+
+[sub_resource type="Animation" id=2]
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpinAnim:spin_speed_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.025, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 20.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HazyParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("HazyParticles")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "restart"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath("HazyParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SpinAnim:spin_speed_modifier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visibility")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "VisibilityOff"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visibility")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "VisibilityOn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visibility")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.0960699, 0.58952, 0.995633, 1 )
+colors = PoolColorArray( 0.545098, 0.545098, 0.545098, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0.336245, 0.336245, 0.336245, 0.336245, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 5 )
+shader_param/direction = Vector3( 0, 1, 0 )
+shader_param/spread = 180.0
+shader_param/flatness = 0.0
+shader_param/initial_linear_velocity = 0.5
+shader_param/initial_angle = 0.0
+shader_param/angular_velocity = 0.0
+shader_param/orbit_velocity = 0.0
+shader_param/linear_accel = 0.0
+shader_param/radial_accel = 0.0
+shader_param/tangent_accel = 0.0
+shader_param/damping = 0.0
+shader_param/scale = 1.0
+shader_param/hue_variation = 0.0
+shader_param/anim_speed = 0.0
+shader_param/anim_offset = 0.0
+shader_param/initial_linear_velocity_random = 0.0
+shader_param/initial_angle_random = 0.0
+shader_param/angular_velocity_random = 0.0
+shader_param/orbit_velocity_random = 0.0
+shader_param/linear_accel_random = 0.0
+shader_param/radial_accel_random = 0.0
+shader_param/tangent_accel_random = 0.0
+shader_param/damping_random = 0.0
+shader_param/scale_random = 0.0
+shader_param/hue_variation_random = 0.0
+shader_param/anim_speed_random = 0.0
+shader_param/anim_offset_random = 0.0
+shader_param/lifetime_randomness = 0.0
+shader_param/emission_sphere_radius = 2.0
+shader_param/color_value = Color( 1, 1, 1, 1 )
+shader_param/trail_divisor = 1
+shader_param/gravity = Vector3( 0, -1e-06, 0 )
+shader_param/rotation_y_speed = 2.0
+shader_param/color_ramp = SubResource( 8 )
+
+[sub_resource type="QuadMesh" id=6]
+material = ExtResource( 6 )
+size = Vector2( 0.25, 0.25 )
+
+[node name="MainCollectible" groups=["Game"] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+terminal_velocity = 50.0
+visibility = 1.0
+collectible_type = "MainCollectible"
+collectible_id = "MainCollectible1"
+collectible_name = "Main Collectible 1"
+collectible_message = "You got a %s!"
+
+[node name="CollisionShape" parent="." index="0"]
+shape = SubResource( 13 )
+
+[node name="SpinAnim" parent="." index="3" instance=ExtResource( 3 )]
+spin_speed = 1.0
+spin_speed_modifier = 1.0
+
+[node name="Float" parent="." index="4" instance=ExtResource( 4 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+anims/Passby = SubResource( 2 )
+anims/RESET = SubResource( 10 )
+anims/VisibilityOff = SubResource( 12 )
+anims/VisibilityOn = SubResource( 11 )
+
+[node name="HazyParticles" type="Particles" parent="." index="6"]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.25
+randomness = 0.5
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 6 )

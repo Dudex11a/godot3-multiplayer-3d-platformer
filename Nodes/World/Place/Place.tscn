@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Nodes/World/Place/Place.gd" type="Script" id=1]
+[ext_resource path="res://Nodes/World/Objects/OutOfBounds/OutOfBounds.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/Pawn/Actor/Checkpoint/Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Pawn/Actor/ActorSpawner/ActorSpawner.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Preview1"
+length = 60.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[node name="Place" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="CameraRod" type="Spatial" parent="."]
+
+[node name="PreviewCamera" type="Camera" parent="CameraRod"]
+transform = Transform( 1, 0, 0, 0, 0.56061, 0.82808, 0, -0.82808, 0.56061, 0, 17.9061, 20.2565 )
+current = true
+
+[node name="CameraAnim" type="AnimationPlayer" parent="CameraRod"]
+autoplay = "Preview1"
+anims/Preview1 = SubResource( 1 )
+
+[node name="OutOfBounds" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0 )
+collision_layer = 3
+collision_mask = 3
+monitorable = false
+
+[node name="CollisionShape" parent="OutOfBounds" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0 )
+
+[node name="Spawn" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="Checkpoint" parent="Spawn" instance=ExtResource( 3 )]
+
+[editable path="OutOfBounds"]

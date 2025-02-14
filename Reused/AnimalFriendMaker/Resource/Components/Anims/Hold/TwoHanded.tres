@@ -1,0 +1,10 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=2 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "PickupIdle_loop"
+
+[resource]
+graph_offset = Vector2( -220, 64 )
+nodes/Animation/node = SubResource( 1 )
+nodes/Animation/position = Vector2( 60, 140 )
+node_connections = [ "output", 0, "Animation" ]

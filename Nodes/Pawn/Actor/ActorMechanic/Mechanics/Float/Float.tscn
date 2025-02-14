@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Actor/ActorMechanic/Mechanics/Float/Float.gd" type="Script" id=2]
+
+[node name="Float" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="RayCast" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, 0 )
+collision_mask = 2

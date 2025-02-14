@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/Action.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Pawn/Actor/Actions/Roll/Roll.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.5 ), 0.0, 0.632286, 0, 1, Vector2( 0.546358, 0.845455 ), 4.11818, 4.11818, 0, 0, Vector2( 0.847682, 0.281818 ), -0.5, -0.5, 0, 0, Vector2( 0.993377, 0.418182 ), 0.0, 0.0, 0, 0 ]
+
+[node name="Roll" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+roll_strength = 50.0
+speed_curve = SubResource( 1 )
+turn_speed = 3.0
+
+[node name="Duration" type="Timer" parent="." index="0"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Duration" to="." method="_on_Duration_timeout"]

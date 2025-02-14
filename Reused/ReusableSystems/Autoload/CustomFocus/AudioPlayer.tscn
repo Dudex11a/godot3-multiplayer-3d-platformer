@@ -1,0 +1,11 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/LazyAudio/LazyAudio.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reused/ReusableSystems/Autoload/CustomFocus/Sound/Select1.wav" type="AudioStream" id=2]
+[ext_resource path="res://Reused/ReusableSystems/Autoload/CustomFocus/Sound/Explosion1.wav" type="AudioStream" id=3]
+[ext_resource path="res://Reused/ReusableSystems/Autoload/CustomFocus/Sound/CursorMove1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Reused/ReusableSystems/Autoload/CustomFocus/Sound/Select2.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Reused/ReusableSystems/Autoload/CustomFocus/Sound/Unselect1.ogg" type="AudioStream" id=6]
+
+[node name="LazyAudio" instance=ExtResource( 1 )]
+audio_array = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]

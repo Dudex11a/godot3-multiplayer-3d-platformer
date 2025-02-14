@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Nodes/GeneralMenus/GeneralMenus.gd" type="Script" id=1]
+[ext_resource path="res://Nodes/GeneralMenus/Online/Online.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/LobbyMenu/LobbyMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/GeneralMenus/Settings/Settings.tscn" type="PackedScene" id=4]
+
+[node name="GeneralMenus" type="Control" groups=["Game"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Screens" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Online" parent="Screens" instance=ExtResource( 2 )]
+
+[node name="Lobby" parent="Screens" instance=ExtResource( 3 )]
+
+[node name="Settings" parent="Screens" instance=ExtResource( 4 )]
+
+[connection signal="cancel" from="Screens/Online" to="." method="_on_Online_cancel"]
+[connection signal="back" from="Screens/Lobby" to="." method="_on_Lobby_back"]

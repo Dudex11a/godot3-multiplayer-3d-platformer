@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Nodes/PlayerNode/HUD/Actions/Actions.gd" type="Script" id=1]
+
+[node name="Actions" type="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -640.0
+margin_top = -720.0
+script = ExtResource( 1 )
+
+[node name="ActionsContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -203.0
+margin_top = -720.0
+alignment = 2

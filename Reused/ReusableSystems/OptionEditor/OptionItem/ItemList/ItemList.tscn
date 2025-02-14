@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/OptionItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reused/ReusableSystems/OptionEditor/OptionItem/ItemList/ItemList.gd" type="Script" id=2]
+[ext_resource path="res://Reused/ReusableSystems/DDropDownList/DDropDownList.tscn" type="PackedScene" id=3]
+
+[node name="ItemList" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+default_value = [ "" ]
+
+[node name="ValueInput" parent="." index="3" instance=ExtResource( 3 )]
+anchor_left = 0.384
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 6.02765
+margin_top = -24.98
+margin_right = -69.928
+margin_bottom = 25.02
+
+[connection signal="value_changed" from="ValueInput" to="." method="_on_ValueInput_value_changed"]

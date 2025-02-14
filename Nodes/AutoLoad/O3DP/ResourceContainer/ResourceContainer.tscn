@@ -1,0 +1,29 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Reused/ReusableSystems/ResourceContainer/ResourceContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/PlayerNode/PlayerNode.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/Pawn/Actor/Character/Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Spectator/Spectator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/PlayerNode/HUD/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/PlayerNode/PlayerMenus/PlayerMenus.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Nodes/Pawn/Actor/Character/Camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Nodes/PlayerNode/HUD/Actions/Action.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/AutoLoad/O3DP/ResourceContainer/O3DPResourceContainer.gd" type="Script" id=9]
+
+[node name="ResourceContainer" instance=ExtResource( 1 )]
+script = ExtResource( 9 )
+resources = {
+"action_hud_node": ExtResource( 8 ),
+"camera_node": ExtResource( 7 ),
+"character_menus_node": ExtResource( 6 ),
+"character_node": ExtResource( 3 ),
+"hud_node": ExtResource( 5 ),
+"player_node": ExtResource( 2 ),
+"spectator_node": ExtResource( 4 )
+}
+instances_to_pool = {
+"camera_node": 4,
+"character_menus_node": 4,
+"hud_node": 4,
+"player_node": 4
+}

@@ -1,0 +1,589 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/ViewportContainer.gd" type="Script" id=2]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/World.gd" type="Script" id=3]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/Editor.gd" type="Script" id=4]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/AnimalFriendMaker.gd" type="Script" id=5]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriend/AnimalFriend.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Style/DefaultTheme.tres" type="Theme" id=7]
+[ext_resource path="res://Reused/AnimalFriendMaker/Resource/Image/Back.png" type="Texture" id=8]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/TextureEditor/TextureEditor.gd" type="Script" id=9]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/Environment/1/Environment.tres" type="Environment" id=10]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/DirectoryContainer.gd" type="Script" id=11]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/Directories.gd" type="Script" id=12]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/TextureEditor/VBoxContainer.gd" type="Script" id=13]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Path.gd" type="Script" id=15]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/PathContainer.gd" type="Script" id=16]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/ControlsBottom.gd" type="Script" id=17]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/ControlsBottomHBoxContainer.gd" type="Script" id=18]
+[ext_resource path="res://Reused/ReusableSystems/FileSelector/FileSelector.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/ColorsEditor/LimbColorsEditor.gd" type="Script" id=20]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/ColorsEditor/AllColorsEditor.gd" type="Script" id=21]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/ColorsEditor/VBoxContainer.gd" type="Script" id=22]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/Environment/1/Environment.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Resources/Material/GridMaterial1.material" type="Material" id=25]
+[ext_resource path="res://addons/cloud/Cloud.shader" type="Shader" id=26]
+[ext_resource path="res://Reused/ReusableSystems/DColorPicker/DColorPicker.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/AnimalFriendMaker/Editor/FileSelectorBackButton.gd" type="Script" id=29]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="World" id=2]
+environment = ExtResource( 10 )
+
+[sub_resource type="ShaderMaterial" id=3]
+render_priority = -119
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.6
+shader_param/max_density = 6.0
+shader_param/altitude = 1200.0
+shader_param/color = Color( 0.501961, 0.564706, 0.564706, 1 )
+shader_param/detail_noise = true
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=4]
+render_priority = -120
+next_pass = SubResource( 3 )
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.572436
+shader_param/max_density = 7.65382
+shader_param/altitude = 1218.89
+shader_param/color = Color( 0.606488, 0.656064, 0.656064, 1 )
+shader_param/detail_noise = true
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=5]
+render_priority = -121
+next_pass = SubResource( 4 )
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.547008
+shader_param/max_density = 9.17952
+shader_param/altitude = 1237.78
+shader_param/color = Color( 0.698717, 0.736674, 0.736674, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=6]
+render_priority = -122
+next_pass = SubResource( 5 )
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.525685
+shader_param/max_density = 10.4589
+shader_param/altitude = 1256.67
+shader_param/color = Color( 0.778649, 0.806536, 0.806536, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=7]
+render_priority = -123
+next_pass = SubResource( 6 )
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.510121
+shader_param/max_density = 11.3928
+shader_param/altitude = 1275.56
+shader_param/color = Color( 0.846284, 0.86565, 0.86565, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=8]
+render_priority = -124
+next_pass = SubResource( 7 )
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.501519
+shader_param/max_density = 11.9088
+shader_param/altitude = 1294.44
+shader_param/color = Color( 0.901622, 0.914016, 0.914016, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=9]
+render_priority = -125
+next_pass = SubResource( 8 )
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.500548
+shader_param/max_density = 11.9671
+shader_param/altitude = 1313.33
+shader_param/color = Color( 0.944662, 0.951634, 0.951634, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=10]
+render_priority = -126
+next_pass = SubResource( 9 )
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.507282
+shader_param/max_density = 11.5631
+shader_param/altitude = 1332.22
+shader_param/color = Color( 0.975406, 0.978504, 0.978504, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=11]
+render_priority = -127
+next_pass = SubResource( 10 )
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.521199
+shader_param/max_density = 10.7281
+shader_param/altitude = 1351.11
+shader_param/color = Color( 0.993851, 0.994626, 0.994626, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[sub_resource type="ShaderMaterial" id=12]
+render_priority = -128
+next_pass = SubResource( 11 )
+shader = ExtResource( 26 )
+shader_param/seed = -10000.0
+shader_param/speed = Vector2( 15, 15 )
+shader_param/transform_speed = Vector2( 0.001, 0.001 )
+shader_param/min_density = 0.541221
+shader_param/max_density = 9.52671
+shader_param/altitude = 1370.0
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/detail_noise = false
+shader_param/upper_enabled = true
+shader_param/lower_enabled = false
+
+[node name="AnimalFriendMaker" type="Control" groups=["Settings"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 7 )
+script = ExtResource( 5 )
+
+[node name="Editor" type="Control" parent="."]
+anchor_right = 0.499938
+anchor_bottom = 1.00033
+margin_right = 0.0639992
+margin_bottom = -0.200001
+rect_clip_content = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+dt_curve = SubResource( 1 )
+
+[node name="Path" type="Control" parent="Editor"]
+anchor_right = 1.0
+margin_right = 0.000427246
+margin_bottom = 64.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="PanelContainer" parent="Editor/Path"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -0.000549316
+margin_bottom = 0.000198364
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Editor/Path"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 6.0
+margin_right = -3.00098
+margin_bottom = -4.0
+follow_focus = true
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PathContainer" type="HBoxContainer" parent="Editor/Path/ScrollContainer"]
+margin_right = 632.984
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="Editor/Path/ScrollContainer/PathContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Editor/Path/ScrollContainer/PathContainer/BackButton"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 46.999
+margin_bottom = 51.0
+texture = ExtResource( 8 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Directories" type="Control" parent="Editor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 64.0
+margin_right = -0.000549316
+margin_bottom = -64.998
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="PanelContainer" parent="Editor/Directories"]
+anchor_right = 1.0
+anchor_bottom = 1.0002
+margin_right = -6.10352e-05
+margin_bottom = -0.0973206
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DirectoryContainer" type="Control" parent="Editor/Directories"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureEditor" type="Control" parent="Editor/Directories/DirectoryContainer"]
+anchor_left = -0.008
+anchor_top = -0.009
+anchor_right = 1.008
+anchor_bottom = 1.009
+margin_left = 3.032
+margin_top = 3.167
+margin_right = -4.03201
+margin_bottom = -3.16702
+script = ExtResource( 9 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Editor/Directories/DirectoryContainer/TextureEditor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 4.0
+margin_bottom = -2.99994
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Editor/Directories/DirectoryContainer/TextureEditor/ScrollContainer"]
+margin_right = 634.032
+margin_bottom = 580.2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 13 )
+
+[node name="LimbColorsEditor" type="Control" parent="Editor/Directories/DirectoryContainer"]
+visible = false
+anchor_left = -0.008
+anchor_top = -0.009
+anchor_right = 1.008
+anchor_bottom = 1.009
+margin_left = 3.032
+margin_top = 3.167
+margin_right = -4.03201
+margin_bottom = -3.16702
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Editor/Directories/DirectoryContainer/LimbColorsEditor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Editor/Directories/DirectoryContainer/LimbColorsEditor/ScrollContainer"]
+margin_right = 636.032
+margin_bottom = 587.2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Editor/Directories/DirectoryContainer/LimbColorsEditor/ScrollContainer/HBoxContainer"]
+margin_left = 193.0
+margin_right = 443.0
+margin_bottom = 587.0
+size_flags_vertical = 3
+alignment = 1
+script = ExtResource( 22 )
+
+[node name="LimbColors" type="HBoxContainer" parent="Editor/Directories/DirectoryContainer/LimbColorsEditor/ScrollContainer/HBoxContainer/VBoxContainer"]
+margin_top = 470.0
+margin_right = 250.0
+margin_bottom = 470.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="DColorPicker" parent="Editor/Directories/DirectoryContainer/LimbColorsEditor/ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 27 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 116.0
+margin_right = 250.0
+margin_bottom = 466.0
+rect_min_size = Vector2( 250, 350 )
+
+[node name="AvailableColors" type="HBoxContainer" parent="Editor/Directories/DirectoryContainer/LimbColorsEditor/ScrollContainer/HBoxContainer/VBoxContainer"]
+margin_top = 470.0
+margin_right = 250.0
+margin_bottom = 470.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="AllColorsEditor" type="Control" parent="Editor/Directories/DirectoryContainer"]
+anchor_left = -0.008
+anchor_top = -0.009
+anchor_right = 1.008
+anchor_bottom = 1.009
+margin_left = 3.032
+margin_top = 3.167
+margin_right = -4.03201
+margin_bottom = -3.16702
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Editor/Directories/DirectoryContainer/AllColorsEditor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Editor/Directories/DirectoryContainer/AllColorsEditor/ScrollContainer"]
+margin_right = 636.032
+margin_bottom = 587.2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Editor/Directories/DirectoryContainer/AllColorsEditor/ScrollContainer/HBoxContainer"]
+margin_left = 193.0
+margin_right = 443.0
+margin_bottom = 587.0
+size_flags_vertical = 3
+alignment = 1
+script = ExtResource( 22 )
+
+[node name="AvailableColors" type="HBoxContainer" parent="Editor/Directories/DirectoryContainer/AllColorsEditor/ScrollContainer/HBoxContainer/VBoxContainer"]
+margin_top = 116.0
+margin_right = 250.0
+margin_bottom = 116.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="DColorPicker" parent="Editor/Directories/DirectoryContainer/AllColorsEditor/ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 27 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 120.0
+margin_right = 250.0
+margin_bottom = 470.0
+rect_min_size = Vector2( 250, 350 )
+
+[node name="ControlsBottom" type="Control" parent="Editor"]
+anchor_top = 1.0
+anchor_right = 0.999874
+anchor_bottom = 1.00031
+margin_top = -64.998
+margin_right = 0.0639648
+margin_bottom = -0.18396
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="PanelContainer" parent="Editor/ControlsBottom"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Editor/ControlsBottom"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 2
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="Editor/ControlsBottom/HBoxContainer"]
+margin_left = 470.0
+margin_right = 526.0
+margin_bottom = 65.0
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="Editor/ControlsBottom/HBoxContainer"]
+margin_left = 530.0
+margin_right = 588.0
+margin_bottom = 65.0
+text = "Load"
+
+[node name="ExitButton" type="Button" parent="Editor/ControlsBottom/HBoxContainer"]
+margin_left = 592.0
+margin_right = 639.0
+margin_bottom = 65.0
+text = "Exit"
+
+[node name="DirectoryTransitionTimer" type="Timer" parent="Editor"]
+wait_time = 0.2
+one_shot = true
+
+[node name="FileSelect" type="Control" parent="Editor"]
+visible = false
+anchor_right = 0.996
+anchor_bottom = 1.0
+margin_right = 2.04742
+margin_bottom = 0.00201416
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileSelector" parent="Editor/FileSelect" instance=ExtResource( 19 )]
+anchor_right = 0.999813
+anchor_bottom = 0.887
+margin_right = 0.0959778
+margin_bottom = 2.79999
+valid_extentions = [ "af" ]
+
+[node name="Back" type="Control" parent="Editor/FileSelect"]
+anchor_top = 0.892
+anchor_right = 0.996
+anchor_bottom = 0.995
+margin_top = -0.200012
+margin_right = 2.04797
+margin_bottom = -6.10352e-05
+script = ExtResource( 29 )
+
+[node name="_Background" type="PanelContainer" parent="Editor/FileSelect/Back"]
+anchor_right = 0.996
+anchor_bottom = 1.048
+margin_right = 0.0479736
+margin_bottom = 0.0239944
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="Editor/FileSelect/Back"]
+anchor_left = 0.869
+anchor_top = 0.12
+anchor_right = 0.98
+anchor_bottom = 0.926
+margin_left = 0.0466614
+margin_top = -0.0237408
+margin_right = 0.214661
+margin_bottom = 0.0042572
+rect_min_size = Vector2( 50, 50 )
+text = "Back"
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 640, 720 )
+own_world = true
+world = SubResource( 2 )
+handle_input_locally = false
+render_target_update_mode = 3
+shadow_atlas_size = 4
+
+[node name="World" type="Spatial" parent="ViewportContainer/Viewport"]
+script = ExtResource( 3 )
+
+[node name="CameraRod" type="Spatial" parent="ViewportContainer/Viewport/World"]
+transform = Transform( 0.866025, -0.12941, 0.482963, 0, 0.965926, 0.258819, -0.5, -0.224144, 0.836516, 0, 2.25, 0 )
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport/World/CameraRod"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.833 )
+environment = ExtResource( 10 )
+current = true
+far = 10000.0
+
+[node name="Behind" type="Spatial" parent="ViewportContainer/Viewport/World/CameraRod/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100 )
+
+[node name="AnimalFriend" parent="ViewportContainer/Viewport/World" instance=ExtResource( 6 )]
+
+[node name="Floor" type="CSGBox" parent="ViewportContainer/Viewport/World"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+use_in_baked_light = true
+generate_lightmap = false
+width = 1000.0
+height = 100.0
+depth = 1000.0
+material = ExtResource( 25 )
+
+[node name="LevelEnvironment" parent="ViewportContainer/Viewport" instance=ExtResource( 24 )]
+
+[node name="Cloud" parent="ViewportContainer/Viewport/LevelEnvironment" index="1"]
+material_override = SubResource( 12 )
+
+[connection signal="exit" from="Editor" to="." method="_on_Editor_exit"]
+[connection signal="pressed" from="Editor/Path/ScrollContainer/PathContainer/BackButton" to="Editor" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="Editor/ControlsBottom/HBoxContainer/SaveButton" to="Editor" method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="Editor/ControlsBottom/HBoxContainer/LoadButton" to="Editor" method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="Editor/ControlsBottom/HBoxContainer/ExitButton" to="Editor" method="_on_ExitButton_pressed"]
+[connection signal="file_hovered" from="Editor/FileSelect/FileSelector" to="Editor" method="_on_FileSelector_file_hovered"]
+[connection signal="file_selected" from="Editor/FileSelect/FileSelector" to="Editor" method="_on_FileSelector_file_selected"]
+[connection signal="focus_cursor_exit_file_list" from="Editor/FileSelect/FileSelector" to="Editor" method="_on_FileSelector_focus_cursor_exit_file_list"]
+[connection signal="list_looped" from="Editor/FileSelect/FileSelector" to="Editor" method="_on_FileSelector_list_looped"]
+[connection signal="pressed" from="Editor/FileSelect/Back/BackButton" to="Editor" method="_on_FileSelect_BackButton_pressed"]
+
+[editable path="ViewportContainer/Viewport/LevelEnvironment"]

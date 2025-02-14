@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Nodes/Pawn/Actor/ActorSpawner/ActorSpawner.gd" type="Script" id=1]
+
+[node name="ActorSpawner" type="Spatial"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[connection signal="child_entered_tree" from="." to="." method="_on_ActorSpawner_child_entered_tree"]

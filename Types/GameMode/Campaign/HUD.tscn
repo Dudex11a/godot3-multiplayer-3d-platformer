@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Types/GameMode/HUD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Types/GameMode/Campaign/HUD.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/PlayerNode/HUD/BigCollect/BigCollect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Types/GameMode/Campaign/CollectibleIcon.png" type="Texture" id=4]
+[ext_resource path="res://Reused/Resources/Font/SourceSansPro-Regular.otf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 73
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="Campaign" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+game_mode_id = "Campaign"
+
+[node name="BigCollect" parent="." index="0" instance=ExtResource( 3 )]
+
+[node name="CollectibleAmount" type="Control" parent="." index="1"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="CollectibleAmount" index="0"]
+margin_left = 8.40897
+margin_right = 108.409
+margin_bottom = 100.0
+texture = ExtResource( 4 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Amount" type="Label" parent="CollectibleAmount" index="1"]
+margin_left = 114.0
+margin_right = 315.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+valign = 1

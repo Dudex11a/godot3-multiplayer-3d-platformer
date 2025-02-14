@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Nodes/HitBox/HitBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/HitBox/BounceBox/BounceBox.gd" type="Script" id=2]
+
+[node name="BounceBox" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+repeating_timer = 0.1
+launch_velocity = Vector3( 0, 30, 0 )
+velocity_type = 0
+add_parent_velocity = true
+
+[connection signal="actor_entered" from="." to="." method="_on_BounceBox_actor_entered"]

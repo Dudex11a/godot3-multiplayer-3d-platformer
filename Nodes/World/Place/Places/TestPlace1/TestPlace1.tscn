@@ -1,0 +1,593 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Nodes/World/Place/Place.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/World/Place/Places/TestPlace1/Objects/TestMainCollectible.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/Pawn/Actor/Box/Box.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Material/GridMaterial1.material" type="Material" id=4]
+[ext_resource path="res://Nodes/World/Objects/MovingPlatform/MovingPlatform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/Material/GridMaterial3.material" type="Material" id=9]
+[ext_resource path="res://Nodes/Pawn/Actor/ActorSpawner/ActorSpawner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Resources/Material/GridMaterial2.material" type="Material" id=11]
+[ext_resource path="res://Resources/Material/GridMaterial5.material" type="Material" id=13]
+[ext_resource path="res://Reused/AnimalFriendMaker/Nodes/Environment/1/Environment.tscn" type="PackedScene" id=14]
+
+[sub_resource type="CubeMesh" id=3]
+material = ExtResource( 13 )
+size = Vector3( 8, 2, 8 )
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 4, 1, 4 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 5, 5, 5 )
+
+[node name="TestPlace1" instance=ExtResource( 1 )]
+
+[node name="OutOfBounds" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="CollisionShape" parent="OutOfBounds" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -37, 0 )
+
+[node name="Blockout" type="CSGCombiner" parent="." index="2"]
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+
+[node name="CSGBox" type="CSGBox" parent="Blockout" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0845985, -15, 0.0690022 )
+width = 60.0
+height = 30.0
+depth = 50.0
+material = ExtResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="Blockout/CSGBox" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 13, 16 )
+operation = 2
+width = 14.0
+height = 4.0
+depth = 16.0
+material = ExtResource( 9 )
+
+[node name="CSGBox3" type="CSGBox" parent="Blockout/CSGBox" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -15 )
+operation = 2
+width = 12.0
+height = 24.0
+depth = 22.0
+material = ExtResource( 9 )
+
+[node name="CSGBox5" type="CSGBox" parent="Blockout/CSGBox" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -5, 4 )
+operation = 2
+width = 4.0
+height = 8.0
+depth = 42.0
+material = ExtResource( 9 )
+
+[node name="CSGBox2" type="CSGBox" parent="Blockout/CSGBox" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 4, -16 )
+operation = 2
+width = 12.0
+height = 10.0
+depth = 28.0
+material = ExtResource( 9 )
+
+[node name="CSGBox4" type="CSGBox" parent="Blockout/CSGBox" index="4"]
+transform = Transform( -4.25875e-08, 0.225308, -0.974288, 9.84853e-09, 0.974288, 0.225308, 1, 0, -4.37114e-08, -11.83, 0.143858, -21 )
+operation = 2
+width = 8.0
+height = 6.0
+depth = 20.0
+material = ExtResource( 9 )
+
+[node name="CSGBox8" type="CSGBox" parent="Blockout" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 14, 25 )
+width = 34.0
+depth = 34.0
+material = ExtResource( 4 )
+
+[node name="CSGBox24" type="CSGBox" parent="Blockout" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -1, 65 )
+width = 34.0
+depth = 80.0
+material = ExtResource( 4 )
+
+[node name="CSGBox2" type="CSGBox" parent="Blockout" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 10, -11 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox23" type="CSGBox" parent="Blockout" index="4"]
+transform = Transform( 1.49012e-08, -1.49012e-08, -1, 0.258819, 0.965925, -7.71341e-09, 0.965925, -0.258819, 2.87868e-08, 4.41531, 1.09594, 36 )
+width = 16.3435
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox25" type="CSGBox" parent="Blockout" index="5"]
+transform = Transform( 1.49012e-08, -1.49012e-08, -1, 0.5, 0.866025, 0, 0.866025, -0.5, 2.98023e-08, 4.41531, 5.09594, 43 )
+width = 16.3435
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox26" type="CSGBox" parent="Blockout" index="6"]
+transform = Transform( 1.49012e-08, -1.49012e-08, -1, 0.707107, 0.707106, 7.71341e-09, 0.707106, -0.707107, 2.87868e-08, 4.41531, 11.0959, 50 )
+width = 16.3435
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox28" type="CSGBox" parent="Blockout" index="7"]
+transform = Transform( 1.49012e-08, -1.49012e-08, -1, 0.707107, 0.707106, 7.71341e-09, 0.707106, -0.707107, 2.87868e-08, -1.58469, 5.09594, 35 )
+width = 16.3435
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox29" type="CSGBox" parent="Blockout" index="8"]
+transform = Transform( 1.49012e-08, -1.49012e-08, -1, 0.5, 0.866025, -4.44089e-16, 0.866025, -0.5, 2.98023e-08, -1.58469, 14.785, 47.645 )
+width = 16.3435
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox30" type="CSGBox" parent="Blockout" index="9"]
+transform = Transform( 1.49012e-08, -1.49012e-08, -1, 0.258819, 0.965925, -7.71341e-09, 0.965925, -0.258819, 2.87868e-08, -1.58469, 20.8781, 62.3719 )
+width = 16.3435
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox36" type="CSGBox" parent="Blockout" index="10"]
+transform = Transform( 1.49012e-08, -1.49012e-08, -1, 1.93715e-07, 0.999999, -1.49012e-08, 0.999999, -1.93715e-07, 2.58095e-08, -1.58469, 22.8781, 87.3719 )
+width = 36.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox37" type="CSGBox" parent="Blockout" index="11"]
+transform = Transform( 0.999999, -1.93715e-07, 6.95209e-08, 1.93715e-07, 0.999999, -1.49012e-08, -5.86126e-08, 1.49012e-08, 1, 4.41531, 22.8781, 107.372 )
+width = 18.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox27" type="CSGBox" parent="Blockout" index="12"]
+transform = Transform( 1.49012e-08, -1.49012e-08, -1, 0.866025, 0.5, 1.49012e-08, 0.5, -0.866025, 2.58096e-08, 4.41531, 18.0959, 55 )
+width = 16.3435
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox20" type="CSGBox" parent="Blockout" index="13"]
+transform = Transform( -0.492073, 0.131851, -0.860511, 0.258819, 0.965925, 0, 0.831189, -0.222717, -0.509432, -13.4164, 1.09594, 29.7528 )
+width = 16.3435
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox19" type="CSGBox" parent="Blockout" index="14"]
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 7.78733, 0.259391, 21 )
+width = 16.3435
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox7" type="CSGBox" parent="Blockout" index="15"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 14, -1 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox14" type="CSGBox" parent="Blockout" index="16"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -3, 14 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox31" type="CSGBox" parent="Blockout" index="17"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5754, 15.4216, 51.4572 )
+width = 6.0
+height = 55.41
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox33" type="CSGBox" parent="Blockout" index="18"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5754, 15.4216, 61.777 )
+width = 6.0
+height = 55.41
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox38" type="CSGBox" parent="Blockout" index="19"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4996, 37.3596, 74.5918 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 13 )
+
+[node name="CSGBox39" type="CSGBox" parent="Blockout" index="20"]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 24.5502, 32.4216, 88.5417 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 13 )
+
+[node name="CSGBox34" type="CSGBox" parent="Blockout" index="21"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.036, -0.969356, 81.777 )
+width = 44.0
+depth = 26.0
+material = ExtResource( 9 )
+
+[node name="CSGBox35" type="CSGBox" parent="Blockout" index="22"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.036, 14.0306, 104.286 )
+width = 12.0
+height = 30.0
+depth = 16.0
+material = ExtResource( 11 )
+
+[node name="CSGBox32" type="CSGBox" parent="Blockout" index="23"]
+transform = Transform( 0.855775, -0.1534, -0.494082, 0.132848, 0.988164, -0.0766999, 0.5, 0, 0.866025, 25.9607, 15.4216, 47.4572 )
+width = 6.0
+height = 55.41
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox15" type="CSGBox" parent="Blockout" index="24"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -10, 6 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox17" type="CSGBox" parent="Blockout" index="25"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -14, 1 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox18" type="CSGBox" parent="Blockout" index="26"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -6, 9.97861 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox16" type="CSGBox" parent="Blockout" index="27"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -17, -5 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox6" type="CSGBox" parent="Blockout" index="28"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 4, -11 )
+width = 18.0
+height = 8.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox2" type="CSGBox" parent="Blockout/CSGBox6" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+operation = 2
+width = 14.0
+height = 4.0
+depth = 6.0
+material = ExtResource( 9 )
+
+[node name="CSGBox11" type="CSGBox" parent="Blockout" index="29"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, -17.8689 )
+width = 18.0
+height = 8.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox2" type="CSGBox" parent="Blockout/CSGBox11" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+operation = 2
+width = 14.0
+height = 4.0
+depth = 6.0
+material = ExtResource( 9 )
+
+[node name="CSGBox9" type="CSGBox" parent="Blockout" index="30"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4.0479, 14 )
+width = 18.0
+height = 8.0
+depth = 20.0
+material = ExtResource( 11 )
+
+[node name="CSGBox2" type="CSGBox" parent="Blockout/CSGBox9" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0 )
+operation = 2
+width = 20.0
+height = 6.0
+depth = 12.0
+material = ExtResource( 9 )
+
+[node name="CSGBox12" type="CSGBox" parent="Blockout" index="31"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 19.1925, 26.4949 )
+width = 18.0
+height = 8.0
+depth = 20.0
+material = ExtResource( 11 )
+
+[node name="CSGBox2" type="CSGBox" parent="Blockout/CSGBox12" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0 )
+operation = 2
+width = 20.0
+height = 6.0
+depth = 20.0
+material = ExtResource( 9 )
+
+[node name="CSGBox21" type="CSGBox" parent="Blockout" index="32"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 4, -20 )
+width = 6.0
+height = 8.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox22" type="CSGBox" parent="Blockout" index="33"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, -10 )
+width = 6.0
+height = 4.0
+depth = 6.0
+material = ExtResource( 11 )
+
+[node name="CSGBox3" type="CSGBox" parent="Blockout" index="34"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4, -21 )
+width = 4.0
+height = 8.0
+depth = 4.0
+material = ExtResource( 11 )
+
+[node name="CSGBox5" type="CSGBox" parent="Blockout" index="35"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -24.8308, 30 )
+width = 18.0
+depth = 10.0
+material = ExtResource( 11 )
+
+[node name="CSGBox10" type="CSGBox" parent="Blockout" index="36"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -12.8308, 30 )
+height = 22.0
+depth = 10.0
+material = ExtResource( 11 )
+
+[node name="CSGBox4" type="CSGBox" parent="Blockout" index="37"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 2, -20 )
+width = 5.89513
+height = 4.0
+material = ExtResource( 11 )
+
+[node name="CSGBox" type="CSGBox" parent="Blockout/CSGBox4" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+operation = 2
+height = 4.0
+material = ExtResource( 9 )
+
+[node name="CSGBox13" type="CSGBox" parent="Blockout" index="38"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 52, 21.0401, 39 )
+width = 10.0
+height = 12.0
+material = ExtResource( 11 )
+
+[node name="CSGBox" type="CSGBox" parent="Blockout/CSGBox13" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+operation = 2
+height = 10.0
+material = ExtResource( 9 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Blockout" index="39"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 13, 17 )
+radius = 4.0
+height = 12.0
+material = ExtResource( 9 )
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="Blockout" index="40"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1047, 6.02253, -21.0603 )
+radius = 4.0
+height = 12.0
+material = ExtResource( 9 )
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="Blockout" index="41"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 3, 17 )
+radius = 2.0
+height = 40.0
+material = ExtResource( 9 )
+
+[node name="CSGCylinder4" type="CSGCylinder" parent="Blockout" index="42"]
+transform = Transform( 0.796065, 0, 0.605211, 0, 1, 0, -0.605211, 0, 0.796065, -21.9504, 1.19084, 44.3855 )
+radius = 10.0
+height = 6.0
+material = ExtResource( 11 )
+
+[node name="Spawn" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 17 )
+
+[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -10 )
+travel_time = 5.0
+wait_time = 0.3
+
+[node name="MeshInstance" type="MeshInstance" parent="MovingPlatform/Body" index="0"]
+mesh = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MovingPlatform/Body" index="1"]
+shape = SubResource( 1 )
+
+[node name="Spatial2" parent="MovingPlatform/LocationContainer" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0 )
+
+[node name="Spatial3" type="Spatial" parent="MovingPlatform/LocationContainer" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, -56 )
+
+[node name="Spatial4" type="Spatial" parent="MovingPlatform/LocationContainer" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -56 )
+
+[node name="MovingPlatform3" parent="." index="5" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, -1, 100 )
+travel_time = 3.0
+wait_time = 1.0
+
+[node name="CSGBox" type="CSGBox" parent="MovingPlatform3/Body" index="0"]
+width = 10.0
+depth = 10.0
+material = ExtResource( 13 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MovingPlatform3/Body" index="1"]
+shape = SubResource( 1 )
+
+[node name="Spatial2" parent="MovingPlatform3/LocationContainer" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0 )
+
+[node name="MovingPlatform2" parent="." index="6" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5874, -2, 24.7546 )
+travel_time = 6.0
+wait_time = 0.0
+
+[node name="CSGBox" type="CSGBox" parent="MovingPlatform2/Body" index="0"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+width = 10.0
+height = 10.0
+depth = 10.0
+material = ExtResource( 13 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MovingPlatform2/Body" index="1"]
+shape = SubResource( 2 )
+
+[node name="Spatial2" parent="MovingPlatform2/LocationContainer" index="1"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -17, 23 )
+
+[node name="Spatial3" type="Spatial" parent="MovingPlatform2/LocationContainer" index="2"]
+transform = Transform( 1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 84, -19, 21.9535 )
+
+[node name="Spatial4" type="Spatial" parent="MovingPlatform2/LocationContainer" index="3"]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 84, 21, -73 )
+
+[node name="Spatial5" type="Spatial" parent="MovingPlatform2/LocationContainer" index="4"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.53546, -15, -73 )
+
+[node name="Spatial6" type="Spatial" parent="MovingPlatform2/LocationContainer" index="5"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.6799, -15, -4 )
+
+[node name="TestMainCollectible" parent="." index="7" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01145, 6, -10 )
+
+[node name="TestMainCollectible" parent="TestMainCollectible" index="0" instance=ExtResource( 2 )]
+collectible_type = "Yellow Polygon"
+collectible_id = "1"
+collectible_name = "Polygon #1"
+
+[node name="TestMainCollectible2" parent="." index="8" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1714, 6, -1.83632 )
+
+[node name="TestMainCollectible" parent="TestMainCollectible2" index="0" instance=ExtResource( 2 )]
+collectible_type = "Yellow Polygon"
+collectible_id = "2"
+collectible_name = "Polygon #2"
+
+[node name="TestMainCollectible3" parent="." index="9" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8286, 28, 17.0002 )
+
+[node name="TestMainCollectible" parent="TestMainCollectible3" index="0" instance=ExtResource( 2 )]
+collectible_type = "Yellow Polygon"
+collectible_id = "3"
+collectible_name = "Polygon #3"
+
+[node name="TestMainCollectible4" parent="." index="10" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8286, 34, 105.7 )
+
+[node name="TestMainCollectible" parent="TestMainCollectible4" index="0" instance=ExtResource( 2 )]
+collectible_type = "Yellow Polygon"
+collectible_id = "4"
+collectible_name = "Polygon #4"
+
+[node name="TestMainCollectible5" parent="." index="11" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8286, -18, 29.7 )
+
+[node name="TestMainCollectible" parent="TestMainCollectible5" index="0" instance=ExtResource( 2 )]
+collectible_type = "Yellow Polygon"
+collectible_id = "5"
+collectible_name = "Polygon #5"
+
+[node name="Box" parent="." index="12" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0938, 1, 4 )
+
+[node name="LevelEnvironment" parent="." index="13" instance=ExtResource( 14 )]
+
+[node name="BoxSpawner" parent="." index="14" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 6, 44 )
+
+[node name="Box" parent="BoxSpawner" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner2" parent="." index="15" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 6, 44 )
+
+[node name="Box" parent="BoxSpawner2" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner4" parent="." index="16" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 9, 44 )
+
+[node name="Box" parent="BoxSpawner4" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner12" parent="." index="17" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, -14, -14 )
+
+[node name="Box" parent="BoxSpawner12" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner13" parent="." index="18" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -14, -14 )
+
+[node name="Box" parent="BoxSpawner13" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner14" parent="." index="19" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, -11, -14 )
+
+[node name="Box" parent="BoxSpawner14" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner15" parent="." index="20" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -14, -14 )
+
+[node name="Box" parent="BoxSpawner15" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner16" parent="." index="21" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, -11, -14 )
+
+[node name="Box" parent="BoxSpawner16" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner3" parent="." index="22" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28775, 25.0239, 97.1176 )
+
+[node name="Box" parent="BoxSpawner3" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner5" parent="." index="23" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71225, 25.0239, 97.1176 )
+
+[node name="Box" parent="BoxSpawner5" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner6" parent="." index="24" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21225, 28.0239, 97.1176 )
+
+[node name="Box" parent="BoxSpawner6" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner7" parent="." index="25" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2878, 25.0239, 25.7757 )
+
+[node name="Box" parent="BoxSpawner7" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner8" parent="." index="26" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2878, 25.0239, 25.7757 )
+
+[node name="Box" parent="BoxSpawner8" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner9" parent="." index="27" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7878, 28.0239, 19.7757 )
+
+[node name="Box" parent="BoxSpawner9" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner10" parent="." index="28" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7878, 1.02391, 78.7757 )
+
+[node name="Box" parent="BoxSpawner10" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner11" parent="." index="29" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8969, -2.97609, 13.6656 )
+
+[node name="Box" parent="BoxSpawner11" index="0" instance=ExtResource( 3 )]
+
+[node name="BoxSpawner17" parent="." index="30" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1031, 9.02391, -21.3344 )
+
+[node name="Box" parent="BoxSpawner17" index="0" instance=ExtResource( 3 )]
+
+[editable path="OutOfBounds"]
+[editable path="MovingPlatform"]
+[editable path="MovingPlatform3"]
+[editable path="MovingPlatform2"]
