@@ -11,4 +11,6 @@ Some features that feel are notible in this project
 
 Also warning if you plan on going digging through the code, I'd consider this project a mess. This project is what made me realize just how important consistant code and file structure are to these kinds of projects.
 
-Before making this repo public I reset the git repo because there was my own PIA within the repo and I didn't want to go through the process of clearing and confirming that each instance of PIA is removed after removing it. The last time I worked on this project before the current tracked changes was 2022.
+Before making this repo public I reset the git repo because there was my own PIA within the repo and I didn't want to go through the process of clearing and confirming that each instance of PIA is removed after removing it.
+
+The last time I worked on this project before the current tracked changes was 2022.
