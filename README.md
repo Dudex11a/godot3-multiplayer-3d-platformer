@@ -1,4 +1,4 @@
-This is was my first attempt at making a Online 3D Platformer. I stopped working on this version of the project because I wanted to use Godot 4 for my project instead as well as wanting to refactor the majority of the project. In retrospect I don't think basically restarting the project was a very good idea. Maybe I'd have the game released by now if I hadn't done that! Because I'm not using this project anymore it's free for anyone else check out and use.
+This is was my first attempt at making a Online 3D Platformer for a project I'm currently working on called Pal'n Around. I stopped working on this version of the project because I wanted to use Godot 4 for my project instead as well as wanting to refactor the majority of the project. In retrospect I don't think basically restarting the project was a very good idea. Maybe I'd have the game released by now if I hadn't done that! Because I'm not using this project anymore it's free for anyone else check out and use.
 
 The game is built using the game engine Godot 3.6.
 
